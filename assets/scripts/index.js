@@ -7,3 +7,4 @@ $(() => {
 //   $('.dropdown').hide()
   events.addHandlers()
 })
+
