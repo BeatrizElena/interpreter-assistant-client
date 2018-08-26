@@ -2,11 +2,13 @@
 <html>
 
 <head>
-  <title>ReadyInterpreter</title>
+  <title>Interpreter Assistant</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- <link rel="stylesheet" href="./assets/styles/bootstrap.css"> -->
+  <link rel="stylesheet" href="./assets/styles/main.css">
 
   <!-- Do not add `script` tags-->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -15,275 +17,207 @@
 
 <body>
 
-  <div class="initial-view">
-    <h3 class="col-md-12" id="sign-in-message">Welcome to your Interpreting Assistant!</h3>
-    <h6>Quick lookup of details about the doctor you're interpreting for.</h6>
-    <p>You can even add your own notes to either prepare for the assignment or afterwards, to debrief and reflect on how the session went.</p>
+  <div id="ortiz-page">
+      <div class="row"> <!--left column, dark-->
+        <div class="column left" style="background-color:#aaa;">
+          <aside id="ortiz-aside" role="complementary" class="border js-fullheight">
+            <h1 id="ortiz-logo"><a href="#">Interpreter Assistant</a></h1>
+            <p class="intro">Quickly learn about the doctor's clinic and specialty before you go to your interpreting session.</p>
+            <p class="intro">Add your own notes. Prepare. Debrief. Reflect.</p>
 
-    <p id="message" class="col-md-12"></p>
-    <!-- form#sign-up.border  -->
-    <div>
-    <form id="sign-up-form">
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input type="text" name="credentials[first_name]" class="form-control" placeholder="First Name">
-        </div>
-        <div class="form-group col-md-6">
-          <input type="text" name="credentials[last_name]" class="form-control" placeholder="Last Name">
-        </div>
-        <div class="form-group col-md-12">
-          <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
-        </div>
-        <div class="form-group col-md-12">
-          <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
-        </div>
-        <div class="form-group col-md-12">
-          <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
-        </div>
-        <div class="form-group col-md-12">
-          <input type="submit" class="btn btn-info btn-md" value="Sign up!">
-        </div>
-      </div>
-    </form>
-  </div>
-    <!-- form#sign-up.border  -->
-    <br>
-    <form id="sign-in-form">
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <input type="text" name="credentials[email]" id="user-email" class="form-control" placeholder="Email">
-        </div>
-        <div class="form-group col-md-12">
-          <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
-        </div>
-        <div class="form-group col-md-12">
-          <input type="submit" class="btn btn-info btn-md" value="Sign in">
-        </div>
-      </div>
-    </form>
-
-    <div class="auth">
-      <form class="border" id="change-password-form">
-            <input type="password" name="passwords[old]" placeholder="Old-Password">
-            <input type="password" name="passwords[new]" placeholder="New-Password">
-        <div class="form-group col-md-12">
-            <button type="submit" id="changePass" class="btn btn-info btn-sm">Change Password</button>
-        </div>     
-      </form>
-    </div>
-
-    <div class="auth">
-      <form class="border" id="sign-out-form">
-        <button class="btn btn-info btn-sm">Sign Out</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="doctor-wrapper">
-    <div class="resources">
-        <form class="doctors border" id="see-all-doctors-form">
-            <div class="form-group">
+            <nav id="ortiz-main-menu" role="navigation">
+                <ul>
+                  <li class="ortiz-active">
+                    <a href="index.html">Dive In!</a>
+                  </li>
+                  <li>
+                    <a href="#">Sign-Up</a>
+                  </li>
+                  <li>
+                    <a href="#">Sign-In</a>
+                  </li>
+                  <li>
+                    <a href="#">Change Password</a>
+                  </li>
+                  <li>
+                    <a href="#">See All Doctors</a>
+                  </li>
+                  <li>
+                    <a href="#">Create A Session</a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="ortiz-footer">
+                <form class="border" id="sign-out-form">
+                  <button class="auth btn btn-info btn-sm">Sign Out</button>
+                </form>
+                  <!-- <p><small><i class="icon-heart" aria-hidden="true"></i> <a href="#"></a></small></p> -->
               </div>
-              <button type="submit" class="btn btn-info btn-sm" id="see-all-doctors">See All Sessions</button>
-        </form>
-    </div>
-
-  </div>
-<!-- docto-wrapper div end -->
-
-  <!--<div class="doctor-wrapper">
-    <div id="session-search" class="col-md-12"> -->
-      <!-- <h2>See All Appointment Sessions</h2>
-      <form class="doctors" id="see-all-doctors">
-        <div class="form-group">
+          </aside> <!-- end left 'aside' -->
         </div>
-        <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#seeAllDoctorsModal">See All Sessions</button>
-      </form> -->
-
-      <!-- All Sessions Modal -->
-      <!-- <div class="modal fade" id="seeAllDoctorsModal" role="dialog">
-        <div class="modal-dialog"> -->
-          <!-- Modal content-->
-          <!-- <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">All Sessions</h4>
+      
+        <div class="column right" style="background-color:#bbb;"> <!--right column-->
+          <div id="ortiz-main"> <!-- start main section on right side "ortiz-main"- balay template -->
+            <aside id="ortiz-hero" class="js-fullheight"> <!-- begin right 'aside' -->
+              <div class="center-in-column">
+              <div class="signup">
+                  <form class="form-inline border" id="sign-up-form">
+                    <div class="form-group">
+                      <input type="text" name="credentials[first_name]" class="form-control" placeholder="First Name">
+                      <input type="text" name="credentials[last_name]" class="form-control" placeholder="Last Name">
+                      <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+                      <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+                      <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
+                      <div class="form-group col-md-12">
+                        <input type="submit" class="btn btn-info btn-md" value="Sign up!">
+                      </div>
+                    </div>
+                  </form>
+                </div>
+      
+              <div class="signin">
+                <form class="form-inline border" id="sign-in-form">
+                  <div class="form-group">
+                    <input type="text" name="credentials[email]" id="user-email" class="form-control" placeholder="Email">
+                    <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-info btn-md" value="Sign in">Sign in</button>
+                </form>
+              </div>
             </div>
-            <div class="modal-body"> -->
-              <!-- display all sessions -->
-              <!-- <div id="see-all-content" class="content"></div> -->
+      
+              <div class="auth">
+                <form class="form-inline border" id="change-password-form">
+                  <input type="password" name="passwords[old]" placeholder="Old-Password">
+                  <input type="password" name="passwords[new]" placeholder="New-Password">
+                  <div class="form-group col-md-12">
+                    <button type="submit" id="changePass" class="btn btn-info btn-sm">Change Password</button>
+                  </div>
+                </form>
+              </div>
+      
+              <hr>
+              <div class="resources">
+              <div class="flex-container">
+              <div class="flex-item">
+                <form class="doctors border" id="see-all-doctors-form">
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-info btn-sm" id="see-all-doctors">See All Doctors</button>
+                  </div>
+                </form>
+              </div>
+      
+              <!-- Showing in console, not in modal yet -->
+              <div class="flex-item">
+                <form class="doctors" id="see-all-sessions-form">
+                  <div class="form-group">
+                  </div>
+                  <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#oneModalSession">See All Your Sessions</button>
+                </form>
+              </div>      
+              <hr>
+              <div class="flex-item>">
+                  <h4>See One Session</h4>
+                  <form class="doctors" id="see-one-session-form">
+                    <div class="form-group">
+                      <input type="text" name="session[_id]" class="form-control" placeholder="Session ID Here">
+                      <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#oneModalSession">Submit</button>
+                    </div>
+                  </form>
+                  </div>
+                  <hr>
+                  <div class="flex-item">
+                      <h4>Add Your Notes to the Session</h4>
+                      <form class="border doctors" id="create-session-form">
+                        <div class="form-group">
+                          <input type="text" name="session.doctor.id" class="search_doctor form-control" placeholder="Doctor Id">
+                        </div>
+                        <div class="form-group">
+                          <textarea name="session.notes" class="search_doctor form-control" rows="10" cols="80" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)"></textarea>
+                        </div>              
+                        <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#oneModalSession">Submit</button>
+                        </span>
+                      </form>
+                  </div>
+                    <hr>
+                    <div class="flex-item>">
+                        <h4>Update One Session</h4>
+                        <form class="doctors" id="update-one-session-form">
+                          <div class="form-group">
+                            <input type="text" name="session[id]" class="search_doctor form-control" placeholder="Session ID Here">
+                            <div class="form-group">    
+                              <textarea class="form-control" id="notes" rows="10" cols="80" placeholder="Update Your Notes"></textarea>
+                            </div>
+                          </div>
+                          <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#oneModalSession">Update</button>
+                        </form>
+                      </div>
+            
+                      <hr>
 
-            <!-- </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- All Sessions Modal ends here-->
-
-      <!-- <h2>See One Session</h2>
-      <form class="doctors" id="search-one-doctor">
-        <div class="form-group">
-          <input type="text" name="session[id]" class="form-control" placeholder="Session ID Here">
-        </div>
-        <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#seeOneSessionModal">See One Session</button>
-      </form>
-      <br /> -->
-      <!-- One Session Modal -->
-      <!-- <div class="modal fade" id="seeOneSessionModal" role="dialog">
-        <div class="modal-dialog"> -->
-          <!-- Modal content-->
-          <!-- <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">See Session Information</h4>
-            </div>
-            <div class="modal-body"> -->
-              <!-- display one session -->
-              <!-- <div id="one-session-content" class="content"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- One Session Modal ends here-->
+                      <div class="flex-item>">
+                          <h4>Delete One Session</h4>
+                          <form class="doctors" id="delete-one-doctor">
+                            <div class="form-group">
+                              <input type="text" name="session[id]" class="form-control" placeholder="Session ID Here">
+                              <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#deleteSessionModal">Delete</button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
 
 
-      <!-- <h2>Add A Session</h2>
-      <form class="border" id="create-sessions">
-        <input type="text" name="session[doctor_id]" class="search_doctor form-control" placeholder="Doctor Id">
-        <br>
-        <input type="textarea" name="session[notes]" class="search_doctor form-control" placeholder="Notes">
-        <br>
-        <input type="date" name="session[date]" class="search_doctor form-control">
-        <input type="time" name="session[time]" class="search_doctor form-control">
-        <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#addSessionModal">Submit</button>
-      </form>
-      <br /> -->
-      <!-- Add a Session Modal -->
-      <!-- <div class="modal fade" id="addSessionModal" role="dialog">
-        <div class="modal-dialog"> -->
-          <!-- Modal content-->
-          <!-- <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Session Information</h4>
-            </div>
-            <div class="modal-body"> -->
-              <!-- display all doctors -->
-              <!-- <div id="add-session-content" class="content"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- Add a Session Modal ends here-->
 
 
-      <!-- <h2>Update One Session</h2>
-      <form class="doctors" id="doctor-update">
-        <div class="form-group">
-          <input type="text" name="session[id]" class="search_doctor form-control" placeholder="Session ID Here">
-          <br>
-          <input type="date" name="session[date]" class="search_doctor form-control">
-          <input type="time" name="session[time]" class="search_doctor form-control">
-          <br> -->
-          <!-- <input type="text" name="session[doctor_id]" class="search_doctor form-control" placeholder="Doctor ID Here">
-                <br> -->
-          <!-- <input type="text" name="session[notes]" class="search_doctor form-control" placeholder="Session Notes Here">
-        </div>
-        <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#updateOneSessionModal">Update One Session</button>
-      </form> -->
-
-      <!-- Update One Session Modal -->
-      <!-- <div class="modal fade" id="updateOneSessionModal" role="dialog">
-        <div class="modal-dialog"> -->
-          <!-- Modal content-->
-          <!-- <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Updated Session Information</h4>
-            </div>
-            <div class="modal-body"> -->
-              <!-- display one session -->
-              <!-- <div id="update-one-session-content" class="content"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <!-- Update One Session Modal ends here-->
-
-      <!-- <h2>Delete One Session</h2>
-      <form class="doctors" id="delete-one-doctor">
-        <div class="form-group">
-          <input type="text" name="session[id]" class="form-control" placeholder="Session ID Here">
-        </div>
-        <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#deleteSessionModal">Delete a Session</button>
-      </form>
-    </div>
-    <div>
-    </div>
-  </div>
-  </div> -->
-
-  <!-- Delete One Session Modal -->
-  <!-- <div class="modal fade" id="deleteSessionModal" role="dialog">
-    <div class="modal-dialog"> -->
-      <!-- Modal content-->
-      <!-- <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Updated Session Information</h4>
-        </div>
-        <div class="modal-body"> -->
-          <!-- display one session -->
-          <!-- <div id="delete-content" class="content"></div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- Delete One Session Modal ends here-->
-
-  <!-- Create  the modals for changing password-->
-  <!-- Change Password Modal -->
-  <div class="modal fade" id="oneModal" role="dialog">
-    <div class="modal-dialog">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <!-- Modal header-->
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"></h4>
-        </div>
-        <!-- Modal body-->
-        <div class="modal-body"> 
+                        
           
-        </div>
-        <!-- Modal footer-->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
+
+    </aside> <!-- end right 'aside' -->
     </div>
   </div>
-
-  <!-- Change Password Modal ends here-->
-  </div>
-  <!-- </div> -->
-  <!-- wrapper div ends here -->
-
-
+  <!-- Create  the modals-->
+    <!-- oneModal -->
+    <div class="modal fade" id="oneModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <!-- Modal header-->
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"></h4>
+            </div>
+            <!-- Modal body-->
+            <div class="modal-body">
+  
+            </div>
+            <!-- Modal footer-->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- oneModal ends here-->
+  
+      <!-- OneModalSession -->
+      <div class="modal fade" id="oneModalSession" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+              <div id="add-session-content" class="content"></div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- OneModalSession ends here-->
 </body>
-
 </html>

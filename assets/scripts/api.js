@@ -58,11 +58,11 @@ const createSession = function(data) {
         Authorization: 'Token token=' + store.user.token
       },
       data: {
-        "disease": {
-          "name_english": `${data.name_english}`,
-          "name_translated": `${data.name_translated}`,
-          "description_english": `${data.description_english}`,
-          "description_translated": `${data.description_translated}`
+        "session": {
+          "doctor.first_name": `${data.session.doctor.first_name}`,
+          "doctor_last_name": `${data.session.doctor.last_name}`,
+          "doctor_title": `${data.session.doctor.title}`,
+          "notes": `${data.session.notes}`
         }
       }
     })
@@ -81,7 +81,7 @@ const createSession = function(data) {
   const seeOneSession = function (data) {
     console.log(data)
     return $.ajax({
-      url: config.apiUrl + '/sessions/' + data.id,
+      url: config.apiUrl + '/sessions/' + data.session.id,
       method: 'GET',
       headers: {
         Authorization: 'Token token=' + store.user.token
@@ -92,7 +92,7 @@ const createSession = function(data) {
   const updateOneSession = function (data) {
     console.log(data)
     return $.ajax({
-      url: config.apiUrl + '/sessions/' + data.id,
+      url: config.apiUrl + '/sessions/' + data.session.id,
       method: 'PATCH',
       headers: {
         Authorization: 'Token token=' + store.user.token
@@ -111,7 +111,7 @@ const createSession = function(data) {
   const deleteOneSession = function (data) {
     console.log(data)
     return $.ajax({
-      url: config.apiUrl + '/sessions/' + data.id,
+      url: config.apiUrl + '/sessions/' + data.session.id,
       method: 'DELETE',
       headers: {
         Authorization: 'Token token=' + store.user.token
@@ -338,6 +338,25 @@ const createDisease = function(data) {
     })
   }
 
+
+
+  const createSession = function(data) {
+    return $.ajax({
+      url: config.apiUrl + '/sessions',
+      method: 'POST',
+      headers: {
+        Authorization: 'Token token=' + store.user.token
+      },
+      data: {
+        "disease": {
+          "name_english": `${data.name_english}`,
+          "name_translated": `${data.name_translated}`,
+          "description_english": `${data.description_english}`,
+          "description_translated": `${data.description_translated}`
+        }
+      }
+    })
+  }
   createDoctor,
   seeOneDoctor,
   updateOneDoctor,

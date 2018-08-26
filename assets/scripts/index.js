@@ -3,8 +3,7 @@
 const events = require('./events.js')
 
 $(() => {
-//   $('.doctor-wrapper').hide()
-//   $('.dropdown').hide()
+  // $('.doctor-wrapper').hide()
   events.addHandlers()
 })
 

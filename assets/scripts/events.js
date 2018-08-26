@@ -10,7 +10,7 @@ const signUp = function(event) {
   api.signUp(data)
     .then(ui.onSignUpSuccess)
     .catch(ui.userAuthError)
-  // $("#sign-up")[0].reset()
+  $("#sign-up-form")[0].reset()
 }
 
 const signIn = function(event) {
@@ -19,7 +19,7 @@ const signIn = function(event) {
   api.signIn(data)
     .then(ui.onSignInSuccess)
     .catch(ui.userAuthError)
-  // $("#sign-in")[0].reset()
+  $("#sign-in-form")[0].reset()
 }
 
 const changePassword = function(event) {
@@ -28,7 +28,7 @@ const changePassword = function(event) {
   api.changePassword(data)
     .then(ui.onChangePwSuccess)
     .catch(ui.userAuthError)
-  // $("#change-pw-form")[0].reset()
+  $("#change-password-form")[0].reset()
 }
 
 const signOut = function(event) {
@@ -44,7 +44,7 @@ const seeAllDoctors = function(event) {
   api.getAllDoctors()
     .then(ui.onGetAllDoctorsSuccess)
     .catch(ui.otherError)
-  // $("#index-items-form")[0].reset()
+  $("#see-all-doctors-form")[0].reset()
 }
 
 // Session Actions
@@ -53,7 +53,7 @@ const seeAllSessions = function(event) {
   api.getAllSessions()
     .then(ui.onGetAllSessionsSuccess)
     .catch(ui.otherError)
-  // $("#index-items-form")[0].reset()
+  $("#see-all-sessions-form")[0].reset()
 }
 
 const createOneSession = function(event) {
@@ -62,7 +62,7 @@ const createOneSession = function(event) {
   api.createOneSession(data)
     .then(ui.onCreateOneSessionSuccess)
     .catch(ui.otherError)
-  // $("#create-form")[0].reset()
+  $("#create-session-form")[0].reset()
 }
 
 const seeOneSession = function(event) {
@@ -80,7 +80,7 @@ const updateOneSession = function(event) {
   api.updateOneSession(data)
     .then(ui.onUpdateOneSessionSuccess)
     .catch(ui.otherError)
-  // $("#update-form")[0].reset()
+  $("#update-one-session-form")[0].reset()
 }
 
 const deleteOneSession = function(event) {
@@ -98,10 +98,10 @@ const addHandlers = () => {
   $('#change-password-form').on('submit', changePassword)
   $('#sign-out-form').on('click', signOut)
   $('#see-all-doctors-form').on('submit', seeAllDoctors)
-  $('#see-all-sessions').on('click', seeAllSessions)
-  $('#create-one-session').on('submit', createOneSession)
-  $('#search-one-session').on('submit', seeOneSession)
-  $('#update-one-session').on('submit', updateOneSession)
+  $('#see-all-sessions-form').on('submit', seeAllSessions)
+  $('#create-one-session-form').on('submit', createOneSession)
+  $('#see-one-session-form').on('submit', seeOneSession)
+  $('#update-one-session-form').on('submit', updateOneSession)
   $('#delete-one-session').on('submit', deleteOneSession)
 }
 

@@ -2,15 +2,15 @@ const store = require('./store.js')
 
 const onSignUpSuccess = function(data) {
     $('.modal-body').html('')
-    $("#oneModalLabel").html('Success!')
+    $(".modal-title").html('Success!')
     const showHTML = (`
         <h4>User Registered!</h4>
         <p>Log in to enter your App</p>
         <br>
       `)
     $(".modal-body").html(showHTML)
-    $("#oneModal").modal('show')
-    $(".form1").css("display", "none")
+    $("#oneModalSession").modal('show')
+    // $(".auth-signup").css("display", "none")
   }
 
 const onSignInSuccess = function(data) {
@@ -23,11 +23,10 @@ const onSignInSuccess = function(data) {
     `)
   $(".modal-body").html(showHTML)
   $("#oneModal").modal('show')
-  $(".form2").css("display", "none")
-  $(".form1").css("display", "none")
-  $(".user-dash").css("display", "flex")
-  $(".flex-container").css("display", "flex")
-  $("#image").css("display", "none")
+  $(".signup").css("display", "none")
+  $(".signin").css("display", "none")
+  $(".auth").css("display", "flex")
+  // $(".flex-container").css("display", "flex")
   store.user = data.user
 }
 
@@ -47,7 +46,7 @@ const onSignOutSuccess = function() {
   $("#oneModalLabel").html('Success!')
   const message = (`
   <h4>User Logged out</h4>
-  <p>Thank you for using ReadyInterprter! Come back soon!</p>
+  <p>Thank you for using Interpreter Assistant! Come back soon!</p>
   `)
   $(".modal-body").html(message)
   $("#oneModal").modal('show')
