@@ -1,0 +1,79 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  background-color: $blue-gray-body;
+  color: $font-color;
+}
+
+h6 {
+  color: $cornflower-blue;
+  display: inline-block;
+  text-align: left;
+}
+
+
+nav {
+  background: $gainsboro;
+
+  ul {
+    padding: 15px 15px 0;
+  }
+
+  li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0;
+}
+}
+
+h1 {
+  color: $cornflower-blue;
+  display: inline-block;
+  text-align: center;
+}
+
+h3 {
+  // https://fonts.google.com/?selection.family=Cinzel&category=Serif,Sans+Serif,Display&sort=popularity
+  font-family: 'Cinzel', serif;
+  color: $cornflower-blue;
+  text-align: left;
+}
+
+p {
+  text-align: left;
+}
+
+// styles for error and success messages (thanks Arjun!)
+div#return-msg-success {
+  position: fixed;
+  top: -20px;
+  width: 100%;
+  height: 20px;
+  color: white;
+  text-align: center;
+  transition: top linear 0.2s;
+}
+
+div#return-msg-error {
+  position: fixed;
+  top: -20px;
+  width: 100%;
+  height: 20px;
+  color: white;
+  text-align: center;
+  transition: top linear 0.2s;
+}
+
+div#return-msg.error {
+  background-color: red;
+  top: 0;
+}
+
+div#return-msg.success {
+  background-color: green;
+  top: 0;
+}
+
+
