@@ -1,4 +1,5 @@
 const store = require('./store.js')
+const w3 = require('./w3.js')
 
 const onSignUpSuccess = function(data) {
     $("signup").removeClass("select")
@@ -48,56 +49,17 @@ const onSignOutSuccess = function() {
 
 // Doctor UI: See all doctors (ToDo: By clinic)
   const onGetAllDoctorsSuccess = function(data) {
-  $('.modal-body').html('')
-  $("#oneModalLabel").html('')
-  console.log(data.doctors)
-  const showHTMLHeaders = (`
-  <h4>Doctors</h4>
-  <div id="table">
-    <div class="tr">
-      <span class="th">Doctor's ID</span>
-      <span class="th">First Name</span>
-      <span class="th">Last Name</span>
-      <span class="th">Title</span>
-      <span class="th">Clinic</span>
-      <span class="th">Phone</span>
-      <span class="th">Disease</span>
-    </div>
-  </div>
-  `)
-
-  $(".modal-body").append(showHTMLHeaders)
-
-  data.doctors.forEach(doctor => {
-    // build HTML elements
+$(".see-all-doctors").html(' ')
+  // console.log(data.doctors)
+  // console.log(data.doctors[0].first_name)
+  // console.log(data.doctors[0].clinic.name)
+  for (let i = 0; i < data.doctors.length; i++) {
     const showHTML = (`
-      <div class="tr" data-id=${doctor._id}>
-        <span class="td">
-          ${doctor._id}
-        </span>
-        <span class="td">
-          ${doctor.first_name}
-        </span>
-        <span class="td">
-          ${doctor.last_name}
-        </span>
-        <span class="td">
-          ${doctor.title}
-        </span>
-        <span class="td">
-        ${clinic.name}
-        </span>
-        <span class="td">
-          ${doctor.phone}
-        </span>
-        <span class="td">
-          "${disease.name}
-        </span>
-      </div>
-    `)
-    $("#table").append(showHTML)
-    $("#oneModal").modal('show')
-  })
+      <p>${data.doctors[i].first_name} ${data.doctors[i].last_name}, ${data.doctors[i].title}, ${data.doctors[i].phone} || Clinic: ${data.doctors[i].clinic.abbreviation} (${data.doctors[i].clinic.name}) || Id: ${data.doctors[i]._id}</p>
+    `)      
+    $(".see-all-doctors").append(showHTML)
+  }
+  
 }
 
 
