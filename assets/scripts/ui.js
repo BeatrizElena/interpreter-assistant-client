@@ -1,32 +1,25 @@
 const store = require('./store.js')
 
 const onSignUpSuccess = function(data) {
-    $('.modal-body').html('')
-    $(".modal-title").html('Success!')
-    const showHTML = (`
-        <h4>User Registered!</h4>
-        <p>Log in to enter your App</p>
-        <br>
-      `)
-    $(".modal-body").html(showHTML)
-    $("#oneModalSession").modal('show')
-    // $(".auth-signup").css("display", "none")
+    $("signup").removeClass("select")
+    $("login").addClass('select')
+    $("#signup-box").slideUp()
+    $("#login-box").slideDown()
   }
 
 const onSignInSuccess = function(data) {
-  $('.modal-body').html('')
-  $("#oneModalLabel").html('Success!')
+  $('#message').html('')
   const showHTML = (`
-      <h4>User Logged In</h4>
-      <p>Welcome to your ReadyInterpreter App</p>
+      <h4>Welcome to your ReadyInterpreter App</h4>
+      <hr>
       <br>
     `)
-  $(".modal-body").html(showHTML)
-  $("#oneModal").modal('show')
-  $(".signup").css("display", "none")
-  $(".signin").css("display", "none")
-  $(".auth").css("display", "flex")
-  // $(".flex-container").css("display", "flex")
+  $("#message").html(showHTML)
+  $("tab-box").css("display", "none")
+  // $(".signup").css("display", "none")
+  // $(".signin").css("display", "none")
+  $(".user").css("display", "none")
+  $(".resources").css("display", "flex")
   store.user = data.user
 }
 
@@ -50,12 +43,6 @@ const onSignOutSuccess = function() {
   `)
   $(".modal-body").html(message)
   $("#oneModal").modal('show')
-
-  $(".user-dash").css("display", "none")
-  $(".form1").css("display", "flex")
-  $(".form2").css("display", "flex")
-  $(".flex-container").css("display", "none")
-  $("#image").css("display", "block")
 }
 
 
@@ -68,8 +55,10 @@ const onSignOutSuccess = function() {
   <h4>Doctors</h4>
   <div id="table">
     <div class="tr">
-      <span class="th">ID</span>
-      <span class="th">Name & Title</span>
+      <span class="th">Doctor's ID</span>
+      <span class="th">First Name</span>
+      <span class="th">Last Name</span>
+      <span class="th">Title</span>
       <span class="th">Clinic</span>
       <span class="th">Phone</span>
       <span class="th">Disease</span>
@@ -87,13 +76,22 @@ const onSignOutSuccess = function() {
           ${doctor._id}
         </span>
         <span class="td">
-          ${doctor.first_name} ' ' ${doctor.last_name}', ' ${doctor.title}
+          ${doctor.first_name}
         </span>
         <span class="td">
-          ${doctor.clinic}
+          ${doctor.last_name}
         </span>
         <span class="td">
-          ${doctor.disease}
+          ${doctor.title}
+        </span>
+        <span class="td">
+        ${clinic.name}
+        </span>
+        <span class="td">
+          ${doctor.phone}
+        </span>
+        <span class="td">
+          "${disease.name}
         </span>
       </div>
     `)
@@ -106,7 +104,7 @@ const onSignOutSuccess = function() {
 // Sessions UI
 
 const onGetAllSessionsSuccess = function(data) {
-  $('.modal-body').html('')
+  $('.modal-body-session').html('')
   $("#oneModalLabel").html('Success!')
   console.log(data)
 
@@ -117,6 +115,8 @@ const onGetAllSessionsSuccess = function(data) {
       <span class="th">Session ID / Doctor ID</span>
       <span class="th">Date</span>
       <span class="th">Doctor</span>
+      <span class="th">Clinic</span>
+      <span class="th">Phone</span>
       <span class="th">My Notes</span>
     </div>
   </div>
@@ -127,60 +127,43 @@ const onGetAllSessionsSuccess = function(data) {
   data.sessions.forEach(session => {
     // build HTML element with data
     const showHTML = (`
-    <div class="tr" data-id=${store.session.id} / ${store.session.doctor_id}>
-      <span class="td"><h5>${store.session.doctor.first_name} ${store.session.doctor.last_name}, ${store.session.doctor.title}, ${store.session.doctor.clinic}</h5></span>
-      <span class="td"> ${store.session.doctor.phone}</span>
-      <span class="td">${store.session.notes}</span>
+    <div class="tr" data-id="${session._id} / ${session.doctor}">
+      <span class="td">
+      <h5>
+      ${session.doctor.first_name} ${session.doctor.last_name} ${session.doctor.title}
+      </h5>
+      </span>
+      <span class="td"> 
+      ${store.session.doctor.clinic}
+      </span>
+      <span class="td"> 
+      ${session.doctor.phone}
+      </span>
+      <span class="td">
+      ${session.notes}
+      </span>
     </div>
     `)
     $("#table").append(showHTML)
   })
 
-  $("#oneModal").modal('show')
+  $("#oneModalSession").modal('show')
 }
-
-// const onGetAllSessionsSuccess = function (data) {
-//   $('#see-all-content').html('')
-//   // console.log('data is ', data)
-//   // data returns all sessions created by any user
-//   if (!data) {
-//     $('#see-all-content').html('Either you deleted something, or something went wrong')
-//   } else {
-//     data
-//     // clear content div, in case something is already there
-//     $('#see-all-content').html('')
-//     data.sessions.forEach(session => {
-//       const showHTML = (`
-//       <p>Session ID: ${store.session.id}, Doctor ID: ${store.session.doctor_id}</p>
-//       <h5>${store.session.doctor.first_name} ${store.session.doctor.last_name}, ${store.session.doctor.title}, ${store.session.doctor.clinic}</h5>
-//       <h6>Phone Number: ${store.session.doctor.phone}</h6>
-//       <p>${store.session.doctor.disease}</p>
-//       <h6>My Notes</h6>
-//       <p>${store.session.notes}</p>
-//         <br>
-//       `)
-//       $('#see-all-content').append(showHTML)
-//       $("#oneModal").modal('show')
-//   })
-//   }
-// }
-
 
 const onCreateOneSessionSuccess = function (data) {
   store.session = data.session
   // console.log(data)
-  $('#add-session-content').html('')
+  $('#modal-body-session').html('')
   const showHTML = (`
-    // <p>Date: ${store.session.date_time}</p>
-    <p>Session ID: ${store.session.id}, Doctor ID: ${store.session.doctor_id}</p>
+    <p>Session ID: ${store.session.id}, Doctor ID: ${data.doctor.id}</p>
     <h5>${store.session.doctor.first_name} ${store.session.doctor.last_name}, ${store.session.doctor.title}, ${store.session.doctor.clinic}</h5>
     <h6>Phone Number: ${store.session.doctor.phone}</h6>
     <p>${store.session.doctor.disease}</p>
     <h6>My Notes</h6>
     <p>${store.session.notes}</p>
   `)
-  $('#add-session-content').append(showHTML)
-  $("#oneModal").modal('show')
+  $('.modal-body-session').append(showHTML)
+  $("#oneModalSession").modal('show')
   // empty values from form fields
   $("input[type=text], textarea").val("")
 }
@@ -191,14 +174,12 @@ const onUpdateSuccess = function (data) {
   $('#update-one-session-content').html('')
   const showHTML = (`
     <p>Session ID: ${store.session.id}, Doctor ID: ${store.session.doctor.id}</p>
-    <h4>Dr. ${store.session.doctor.first_name} ${store.session.doctor.last_name},  ${store.session.doctor.clinic_affiliation},  Main Phone:  ${store.session.doctor.phone_number}</h4>
-    <p>Sub-Specialty - English: ${store.session.doctor.sub_specialty_english}</p>
-    <p>Sub-Specialty - Spanish: ${store.session.doctor.sub_specialty_spanish}</p>
+    <h6>Dr. ${store.session.doctor.first_name} ${store.session.doctor.last_name},  ${store.session.doctor.clinic_affiliation},  Main Phone:  ${store.session.doctor.phone_number}</h6>
     <p>Notes: ${store.session.notes}</p>
     <br>
   `)
   $('#update-one-session-content').append(showHTML)
-  $("#oneModal").modal('show')
+  $("#oneModalSession").modal('show')
 }
 
 const onDeleteSuccess = function () {

@@ -62,7 +62,7 @@ const createOneSession = function(event) {
   api.createOneSession(data)
     .then(ui.onCreateOneSessionSuccess)
     .catch(ui.otherError)
-  $("#create-session-form")[0].reset()
+  // $("#create-session-form")[0].reset()
 }
 
 const seeOneSession = function(event) {
@@ -92,6 +92,23 @@ const deleteOneSession = function(event) {
   // $("#delete-form")[0].reset()
 }
 
+const tabbedFormSignUp = function(event) {
+  event.preventDefault()
+  $("login").removeClass("select")
+  $("signup").addClass('select')
+  $("#login-box").slideUp()
+  $("#signup-box").slideDown()
+}
+
+const tabbedFormLogin = function(event) {
+  event.preventDefault()
+  $("signup").removeClass("select")
+  $("login").addClass('select')
+  $("#signup-box").slideUp()
+  $("#login-box").slideDown()
+}
+
+
 const addHandlers = () => {
   $('#sign-up-form').on('submit', signUp)
   $('#sign-in-form').on('submit', signIn)
@@ -103,6 +120,8 @@ const addHandlers = () => {
   $('#see-one-session-form').on('submit', seeOneSession)
   $('#update-one-session-form').on('submit', updateOneSession)
   $('#delete-one-session').on('submit', deleteOneSession)
+  $('#signup').on('click', tabbedFormSignUp)
+  $('#login').on('click', tabbedFormLogin)
 }
 
 module.exports = {

@@ -19,8 +19,11 @@ body {
     body {
       font-size: 16px; } }
 
-a {
+a .btn-link {
   color: #FFC300;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
@@ -37,6 +40,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Quicksand", Arial, sans-serif;
   font-weight: 400;
   margin: 0 0 30px 0; }
+
+/* button {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 100%;
+  font-family: inherit;
+  border: 0;
+  padding: 0;
+} */
 
 figure {
   margin-bottom: 2.5em;
@@ -67,6 +78,7 @@ figure {
 }
 
 .right {
+  background-color:#bbb;
   width: 70%;
 }
 
@@ -85,7 +97,60 @@ figure {
   align-items: center;
 }
 
+#container {
+  background-color:#bbb;
+  width: 450px;
+}
+
+#tab-box {
+  background-color:#bbb;
+  height: 40px;
+}
+
+#panel {
+  background-color:#bbb;
+  height: 300px;
+}
+
+.tab {
+  background-color:#bbb;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 100px;
+  float: right;
+  font-weight: bold;
+  -webkit-border-top-left-radius: 4px;
+  -webkit-border-top-right-radius: 4px;
+  -moz-border-radius: 4px 4px 0 0;
+
+}
+
+.signup {
+  background-color:#bbb;
+  margin-left: 8px;
+}
+
+.select {
+  background-color:#bbb;
+}
+
+#login-box {
+  background-color:#bbb;
+  min-height: 200px;
+  padding: 10px;
+}
+
+#signup-box {
+  background-color:#bbb;
+  min-height: 200px;
+  padding: 10px;
+  display: none;
+}
+
 .center-in-column {
+  background-color:#bbb;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
