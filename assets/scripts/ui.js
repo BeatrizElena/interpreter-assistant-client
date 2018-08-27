@@ -46,7 +46,6 @@ const onSignOutSuccess = function() {
   $("#oneModal").modal('show')
 }
 
-
 // Doctor UI: See all doctors (ToDo: By clinic)
   const onGetAllDoctorsSuccess = function(data) {
 $(".see-all-doctors").html(' ')
@@ -55,61 +54,32 @@ $(".see-all-doctors").html(' ')
   // console.log(data.doctors[0].clinic.name)
   for (let i = 0; i < data.doctors.length; i++) {
     const showHTML = (`
-      <p>${data.doctors[i].first_name} ${data.doctors[i].last_name}, ${data.doctors[i].title}, ${data.doctors[i].phone} || Clinic: ${data.doctors[i].clinic.abbreviation} (${data.doctors[i].clinic.name}) || Id: ${data.doctors[i]._id}</p>
+      <p>${data.doctors[i].first_name} ${data.doctors[i].last_name}, ${data.doctors[i].title}, ${data.doctors[i].phone} || Clinic: ${data.doctors[i].clinic.abbreviation} (${data.doctors[i].clinic.name}) || Id: ${data.doctors[i]._id}<br />
+      Clinic Information:<br />
+      <small>${data.doctors[i].clinic.description}</small></p>
+      <hr>
     `)      
     $(".see-all-doctors").append(showHTML)
   }
-  
 }
 
-
 // Sessions UI
-
 const onGetAllSessionsSuccess = function(data) {
-  $('.modal-body-session').html('')
-  $("#oneModalLabel").html('Success!')
-  console.log(data)
-
-  const showHTMLHeaders = (`
-  <h4>My Sessions</h4>
-  <div id="table">
-    <div class="tr">
-      <span class="th">Session ID / Doctor ID</span>
-      <span class="th">Date</span>
-      <span class="th">Doctor</span>
-      <span class="th">Clinic</span>
-      <span class="th">Phone</span>
-      <span class="th">My Notes</span>
-    </div>
-  </div>
-  `)
-
-  $(".modal-body").append(showHTMLHeaders)
+  $(".see-all-sessions").html(' ')
+  // console.log(data.sessions)
+  // console.log(data.sessions[0].doctor.first_name)
+  // console.log(data.sessions[0].doctor.last_name)
+  // console.log(data.sessions[0].notes)
   // loop through API data
-  data.sessions.forEach(session => {
-    // build HTML element with data
+  for (let i = 0; i < data.sessions.length; i++) {
     const showHTML = (`
-    <div class="tr" data-id="${session._id} / ${session.doctor}">
-      <span class="td">
-      <h5>
-      ${session.doctor.first_name} ${session.doctor.last_name} ${session.doctor.title}
-      </h5>
-      </span>
-      <span class="td"> 
-      ${store.session.doctor.clinic}
-      </span>
-      <span class="td"> 
-      ${session.doctor.phone}
-      </span>
-      <span class="td">
-      ${session.notes}
-      </span>
-    </div>
-    `)
-    $("#table").append(showHTML)
-  })
-
-  $("#oneModalSession").modal('show')
+      <p>${data.sessions[i].doctor.first_name} ${data.sessions[i].doctor.last_name}, ${data.sessions[i].doctor.title}, ${data.sessions[i].doctor.phone} || Id: ${data.sessions[i]._id}<br />
+      My Session Notes:<br />
+      <small>${data.sessions[i].notes}</small></p>
+      <hr>
+    `)      
+    $(".see-all-sessions").append(showHTML)
+  }
 }
 
 const onCreateOneSessionSuccess = function (data) {
@@ -128,6 +98,20 @@ const onCreateOneSessionSuccess = function (data) {
   $("#oneModalSession").modal('show')
   // empty values from form fields
   $("input[type=text], textarea").val("")
+}
+
+const onSeeOneSessionSuccess = function (data) {
+  console.log(data.session)
+  console.log(data.session.doctor.first_name)
+  $(".see-one-session").html(' ')
+  const showHTML = (`
+      <p>${data.session.doctor.first_name} ${data.session.doctor.last_name}, ${data.session.doctor.title}, ${data.session.doctor.phone}<br />
+      Session Created On: ${data.session.createdAt}<br />
+      My Session Notes:<br />
+      <small>${data.session.notes}</small></p>
+      <hr>
+    `)      
+    $(".see-one-session").append(showHTML)
 }
 
 const onUpdateSuccess = function (data) {
@@ -192,6 +176,7 @@ module.exports = {
   onGetAllDoctorsSuccess,
   onGetAllSessionsSuccess,
   onCreateOneSessionSuccess,
+  onSeeOneSessionSuccess,
   onUpdateSuccess,
   onDeleteSuccess,
   userAuthError,
