@@ -22,6 +22,11 @@ const signIn = function(event) {
   $("#sign-in-form")[0].reset()
 }
 
+const seePasswordForm = function(event){
+  event.preventDefault()
+  ui.onShowPasswordFormSuccess
+}
+
 const changePassword = function(event) {
   event.preventDefault()
   const data = getFormFields(this)
@@ -62,7 +67,7 @@ const createOneSession = function(event) {
   api.createOneSession(data)
     .then(ui.onCreateOneSessionSuccess)
     .catch(ui.otherError)
-  // $("#create-session-form")[0].reset()
+  $("#create-one-session-form")[0].reset()
 }
 
 const seeOneSession = function(event) {
@@ -71,12 +76,15 @@ const seeOneSession = function(event) {
   api.seeOneSession(data)
     .then(ui.onSeeOneSessionSuccess)
     .catch(ui.otherError)
-  // $("#see-one-form")[0].reset()
+  $("#see-one-session-form")[0].reset()
 }
 
 const updateOneSession = function(event) {
   event.preventDefault()
   const data = getFormFields(this)
+  console.log("begin, api-updateOneSession: data")
+  console.log(data)
+  console.log('end, api-updateOneSession: data')
   api.updateOneSession(data)
     .then(ui.onUpdateOneSessionSuccess)
     .catch(ui.otherError)
@@ -89,7 +97,7 @@ const deleteOneSession = function(event) {
   api.deleteOneSession(data)
     .then(ui.onDeleteOneSessionSuccess)
     .catch(ui.otherError)
-  // $("#delete-form")[0].reset()
+  $("#delete-one-session-form")[0].reset()
 }
 
 const tabbedFormSignUp = function(event) {
@@ -112,6 +120,7 @@ const tabbedFormLogin = function(event) {
 const addHandlers = () => {
   $('#sign-up-form').on('submit', signUp)
   $('#sign-in-form').on('submit', signIn)
+  $('#changePass').on('submit', seePasswordForm)
   $('#change-password-form').on('submit', changePassword)
   $('#sign-out-form').on('click', signOut)
   $('#see-all-doctors-form').on('submit', seeAllDoctors)
@@ -119,7 +128,7 @@ const addHandlers = () => {
   $('#create-one-session-form').on('submit', createOneSession)
   $('#see-one-session-form').on('submit', seeOneSession)
   $('#update-one-session-form').on('submit', updateOneSession)
-  $('#delete-one-session').on('submit', deleteOneSession)
+  $('#delete-one-session-form').on('submit', deleteOneSession)
   $('#signup').on('click', tabbedFormSignUp)
   $('#login').on('click', tabbedFormLogin)
 }
@@ -127,153 +136,4 @@ const addHandlers = () => {
 module.exports = {
   addHandlers
 }
-
-/*
-
-const createOneDoctor = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.createDoctorItem(data)
-    .then(ui.onCreateOneDoctorSuccess)
-    .catch(ui.otherError)
-  // $("#create-form")[0].reset()
-}
-
-const seeOneDoctor = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.seeOneInventoryItem(data)
-    .then(ui.onSeeOneDoctorSuccess)
-    .catch(ui.otherError)
-  // $("#see-one-form")[0].reset()
-}
-
-const updateOneDoctor = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.updateOneDoctor(data)
-    .then(ui.onUpdateOneDoctorSuccess)
-    .catch(ui.otherError)
-  // $("#update-form")[0].reset()
-}
-
-const deleteOneDoctor = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.deleteOneDoctor(data)
-    .then(ui.onDeleteOneDoctorSuccess)
-    .catch(ui.otherError)
-  // $("#delete-form")[0].reset()
-}
-
-
-
-// Clinic Actions
-const seeAllClinics = function(event) {
-  event.preventDefault()
-  api.getAllClinics()
-    .then(ui.onGetAllClinicsSuccess)
-    .catch(ui.otherError)
-  // $("#index-items-form")[0].reset()
-}
-
-const createOneClinic = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.createOneClinic(data)
-    .then(ui.onCreateOneClinicSuccess)
-    .catch(ui.otherError)
-  // $("#create-clinic")[0].reset()
-}
-
-const seeOneClinic = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.seeOneClinic(data)
-    .then(ui.onSeeOneClinicSuccess)
-    .catch(ui.otherError)
-  // $("#see-one-form")[0].reset()
-}
-
-const updateOneClinic = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.updateOneClinic(data)
-    .then(ui.onUpdateOneClinicSuccess)
-    .catch(ui.otherError)
-  // $("#update-form")[0].reset()
-}
-
-const deleteOneClinic = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.deleteOneClinic(data)
-    .then(ui.onDeleteOneClinicSuccess)
-    .catch(ui.otherError)
-  // $("#delete-form")[0].reset()
-}
-
-
-// Disease Actions
-const seeAllDiseases = function(event) {
-  event.preventDefault()
-  api.getAllClinics()
-    .then(ui.onGetAllClinicsSuccess)
-    .catch(ui.otherError)
-  // $("#index-items-form")[0].reset()
-}
-
-const createOneDisease = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.createOneDisease(data)
-    .then(ui.onCreateOneDiseaseSuccess)
-    .catch(ui.otherError)
-  // $("#create-form")[0].reset()
-}
-
-const seeOneDisease = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.seeOneDisease(data)
-    .then(ui.onSeeOneDiseaseSuccess)
-    .catch(ui.otherError)
-  // $("#see-one-form")[0].reset()
-}
-
-const updateOneDisease = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.updateOneDisease(data)
-    .then(ui.onUpdateOneDiseaseSuccess)
-    .catch(ui.otherError)
-  // $("#update-form")[0].reset()
-}
-
-const deleteOneDisease = function(event) {
-  event.preventDefault()
-  const data = getFormFields(this)
-  api.deleteOneDisease(data)
-    .then(ui.onDeleteOneDiseaseSuccess)
-    .catch(ui.otherError)
-  // $("#delete-form")[0].reset()
-}
-
-
-
-$('#create-doctors').on('submit', createOneDoctor)
-$('#search-one-doctor').on('submit', seeOneDoctor)
-$('#doctor-update').on('submit', updateOneDoctor)
-$('#delete-one-doctor').on('submit', deleteOneDoctor)
-$('#see-all-clinics').on('click', seeAllClinics)
-$('#create-one-clinic').on('submit', createOneClinic)
-$('#search-one-clinic').on('submit', seeOneClinic)
-$('#update-one-clinic').on('submit', updateOneClinic)
-$('#delete-one-clinic').on('submit', deleteOneClinic)
-$('#see-all-diseases').on('click', seeAllDiseases)
-$('#create-one-disease').on('submit', createOneDisease)
-$('#search-one-disease').on('submit', seeOneDisease)
-$('#update-one-disease').on('submit', updateOneDisease)
-$('#delete-one-disease').on('submit', deleteOneDisease)
-*/
 

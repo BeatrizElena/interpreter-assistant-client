@@ -50,7 +50,8 @@ const getAllDoctors = function() {
 }
 
 //   Session API Methods
-const createSession = function(data) {
+const createOneSession = function(data) {
+  console.log(data)
     return $.ajax({
       url: config.apiUrl + '/sessions',
       method: 'POST',
@@ -59,10 +60,8 @@ const createSession = function(data) {
       },
       data: {
         "session": {
-          "doctor.first_name": `${data.session.doctor.first_name}`,
-          "doctor_last_name": `${data.session.doctor.last_name}`,
-          "doctor_title": `${data.session.doctor.title}`,
-          "notes": `${data.session.notes}`
+          "doctor": data.doctor,
+          "notes": data.notes
         }
       }
     })
@@ -79,7 +78,6 @@ const createSession = function(data) {
   }
   
   const seeOneSession = function (data) {
-    console.log(data)
     return $.ajax({
       url: config.apiUrl + '/sessions/' + data.session.id,
       method: 'GET',
@@ -90,21 +88,13 @@ const createSession = function(data) {
   }
   
   const updateOneSession = function (data) {
-    console.log(data)
     return $.ajax({
       url: config.apiUrl + '/sessions/' + data.session.id,
       method: 'PATCH',
       headers: {
         Authorization: 'Token token=' + store.user.token
       },
-      data: {
-        "disease": {
-            "name_english": `${data.name_english}`,
-            "name_translated": `${data.name_translated}`,
-            "description_english": `${data.description_english}`,
-            "description_translated": `${data.description_translated}`
-          }
-      }
+      data
     })
   }
   
@@ -125,7 +115,7 @@ module.exports = {
   changePassword,
   signOut,
   getAllDoctors,
-  createSession,
+  createOneSession,
   getAllSessions,
   seeOneSession,
   updateOneSession,

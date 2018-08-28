@@ -33,9 +33,9 @@
               <li class="ortiz-active">
                 <a href="index.html">Dive In!</a>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#">Change Password</a>
-              </li>
+              </li> -->
               <li>
                 <div class="flex-item">
                   <form class="doctors border" id="see-all-doctors-form">
@@ -47,25 +47,26 @@
                 <!-- <a href="#">See All Doctors</a> -->
               </li>
               <li>
-                  <!-- Showing in console, not in modal yet -->
                 <div class="flex-item">
-                    <form class="doctors" id="see-all-sessions-form">
-                      <div class="form-group">
-                      </div>
-                      <button type="submit" class="btn btn-link" data-toggle="modal" data-target="#oneModalSession">See All Your Sessions</button>
-                    </form>
-                  </div>
-                  <!-- <a href="#">See All Doctors</a> -->
-                </li>
-              <li>
-                <a href="#">Create A Session</a>
+                  <form class="doctors" id="see-all-sessions-form">
+                    <div class="form-group">
+                    </div>
+                    <button type="submit" class="btn btn-link" data-toggle="modal" data-target="#oneModalSession">See All Your Sessions</button>
+                  </form>
+                </div>
+                <!-- <a href="#">See All Doctors</a> -->
               </li>
+              <!-- <li>
+                <a href="#">Create A Session</a>
+              </li> -->
             </ul>
           </nav>
           <div class="ortiz-footer">
+              <button type="submit" id="changePass" class="auth2 btn btn-link">Change Password</button>
             <form class="border" id="sign-out-form">
-              <button class="auth btn btn-info btn-sm">Sign Out</button>
+              <button class="auth btn btn-link">Sign Out</button>
             </form>
+            <a href="#">_______________________</a>
             <!-- <p><small><i class="icon-heart" aria-hidden="true"></i> <a href="#"></a></small></p> -->
           </div>
         </aside>
@@ -78,79 +79,80 @@
           <!-- start main section on right side "ortiz-main"- balay template -->
           <aside id="ortiz-hero" class="js-fullheight">
             <!-- begin right 'aside' -->
-            <div  class="user">
+            <div class="user">
               <div class="flex-container">
-                <div id="message flex-item"></div>
                 <div class="flex-item">
                   <div id="tab-box">
                     <a href="#" id="signup" class="tab signup">Sign-Up</a>
                     <a href="#" id="login" class="tab select">Login</a>
                     <div id="panel">
-                        <div id="signup-box">
-                            <form class="form-inline border" id="sign-up-form">
-                              <div class="form-group">
-                                <br />
-                                <br />
-                                <input type="text" name="credentials[first_name]" class="form-control" placeholder="First Name">
-                                <input type="text" name="credentials[last_name]" class="form-control" placeholder="Last Name">
-                                <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
-                                <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
-                                <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
-                                <div class="form-group col-md-12">
-                                  <input type="submit" class="btn btn-info btn-md" value="Sign up!">
-                                </div>
-                              </div>
-                            </form>
+                      <div id="signup-box">
+                        <form class="form-inline border" id="sign-up-form">
+                          <div class="form-group">
+                            <br />
+                            <br />
+                            <input type="text" name="credentials[first_name]" class="form-control" placeholder="First Name">
+                            <input type="text" name="credentials[last_name]" class="form-control" placeholder="Last Name">
+                            <input type="text" name="credentials[email]" class="form-control" placeholder="Email">
+                            <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
+                            <input type="password" name="credentials[password_confirmation]" class="form-control" placeholder="Password Confirmation">
+                            <div class="form-group col-md-12">
+                              <input type="submit" class="btn btn-info btn-md" value="Sign up!">
+                            </div>
                           </div>
+                        </form>
+                      </div>
                       <div id="login-box">
                         <form class="form-inline border" id="sign-in-form">
                           <div class="form-group">
                             <br />
                             <br />
-                            <h4>Your account had been created. Please login to enter your App.</h4>
+                            <h4>Please login to enter your App or Create an Account First</h4>
                             <input type="text" name="credentials[email]" id="user-email" class="form-control" placeholder="Email">
                             <input type="password" name="credentials[password]" class="form-control" placeholder="Password">
                           </div>
                           <button type="submit" class="btn btn-info btn-md" value="Sign in">Sign in</button>
                         </form>
-                        <form class="form-inline border" id="change-password-form">
-                          <br />
-                          <br />
-                          <input type="password" name="passwords[old]" placeholder="Old-Password">
-                          <input type="password" name="passwords[new]" placeholder="New-Password">
-                          <div class="form-group col-md-12">
-                            <button type="submit" id="changePass" class="btn btn-info btn-sm" data-toggle="modal" data-target="#oneModalSession">Change Password</button>
-                          </div>
-                        </form>
                       </div>
-                      
+
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-
-            
-
-            <!-- <div class="auth">
-                <form class="form-inline border" id="change-password-form">
-                  <input type="password" name="passwords[old]" placeholder="Old-Password">
-                  <input type="password" name="passwords[new]" placeholder="New-Password">
-                  <div class="form-group col-md-12">
-                    <button type="submit" id="changePass" class="btn btn-info btn-sm">Change Password</button>
-                  </div>
-                </form>
-              </div> -->
-
-            <hr>
             <div class="resources">
               <div class="flex-container">
+                  <div flex-item password-change-div>
+                      <!-- <form class="form-inline border" id="change-password-form">
+                        <input type="password" name="passwords[old]" placeholder="Old-Password">
+                        <input type="password" name="passwords[new]" placeholder="New-Password">
+                        <div class="form-group col-md-12">
+                          <button type="submit" id="changePassword" class="btn btn-info btn-sm">Change Password</button>
+                        </div>
+                      </form> -->
+                    </div>
+                <div class="message flex-item"></div>
                 <div class="flex-item see-all-doctors"></div>
                 <hr>
                 <div class="flex-item see-all-sessions"></div>
                 <hr>
                 <div class="flex-item see-one-session"></div>
+                <hr>
+                <div class="flex-item">
+                  <h4>Add Your Notes to the Session</h4>
+                  <form class="border doctors" id="create-one-session-form">
+                    <div class="form-group">
+                      <input type="text" name="doctor" class="search_doctor form-control" placeholder="Doctor Id">
+                    </div>
+                    <div class="form-group">
+                      <textarea name="notes" class="search_doctor form-control" rows="10" cols="80" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-info btn-sm">Submit</button>
+                    </span>
+                  </form>
+                </div>
+                <div class="flex-item see-created-session"></div>
                 <hr>
 
 
@@ -159,105 +161,48 @@
                   <form class="doctors" id="see-one-session-form">
                     <div class="form-group">
                       <input type="text" name="session[id]" class="form-control" placeholder="Session ID Here">
-                      <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#oneModalSession">Submit</button>
+                      <button type="submit" class="btn btn-info btn-sm">Submit</button>
                     </div>
                   </form>
                 </div>
                 <hr>
-                <div class="flex-item">
-                  <h4>Add Your Notes to the Session</h4>
-                  <form class="border doctors" id="create-session-form">
-                    <div class="form-group">
-                      <input type="text" name="session.doctor.id" class="search_doctor form-control" placeholder="Doctor Id">
-                    </div>
-                    <div class="form-group">
-                      <textarea name="session.notes" class="search_doctor form-control" rows="10" cols="80" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#oneModalSession">Submit</button>
-                    </span>
-                  </form>
-                </div>
+
                 <hr>
                 <div class="flex-item>">
                   <h4>Update One Session</h4>
-                  <form class="doctors" id="update-one-session-form">
-                    <div class="form-group">
-                      <input type="text" name="session[id]" class="search_doctor form-control" placeholder="Session ID Here">
+                  <form class="border doctors" id="update-one-session-form">
                       <div class="form-group">
-                        <textarea class="form-control" id="notes" rows="10" cols="80" placeholder="Update Your Notes"></textarea>
+                        <input type="text" name="session[id]" class="search_doctor form-control" placeholder="Session Id Here">
                       </div>
-                    </div>
-                    <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#oneModalSession">Update</button>
-                  </form>
+                      <div class="form-group">
+                        <textarea name="session[notes]" class="search_doctor form-control" rows="10" cols="80" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-info btn-sm">Submit</button>
+                      </span>
+                    </form>
                 </div>
+                <div class="flex-item see-updated-session"></div>
+                <hr>
 
                 <hr>
 
                 <div class="flex-item>">
                   <h4>Delete One Session</h4>
-                  <form class="doctors" id="delete-one-doctor">
+                  <form class="doctors" id="delete-one-session-form">
                     <div class="form-group">
                       <input type="text" name="session[id]" class="form-control" placeholder="Session ID Here">
-                      <button type="submit" class="btn btn-info btn-sm" data-toggle="modal" data-target="#deleteSessionModal">Delete</button>
+                      <button type="submit" class="btn btn-info btn-sm">Delete</button>
                     </div>
                   </form>
                 </div>
+                <div class="flex-item deleted-message"></div>
+                <hr>
               </div>
             </div>
-
-
-
-
-
-
-
           </aside>
           <!-- end right 'aside' -->
         </div>
       </div>
-      <!-- Create  the modals-->
-      <!-- oneModal -->
-      <div class="modal fade" id="oneModal" role="dialog" tabindex="-1" aria-labelledby="oneModalLabel">
-        <div class="modal-dialog" role="document">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <!-- Modal header-->
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title" id="oneModalLabel"></h4>
-            </div>
-            <!-- Modal body-->
-            <div class="modal-body">
-
-            </div>
-            <!-- Modal footer-->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- oneModal ends here-->
-
-      <!-- OneModalSession -->
-      <div class="modal fade" id="oneModalSession" role="dialog">
-        <div class="modal-dialog">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title"></h4>
-            </div>
-            <div class="modal-body">
-              <div id="add-session-content" class="content"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- OneModalSession ends here-->
 </body>
 
 </html>
