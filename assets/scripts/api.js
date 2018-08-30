@@ -51,9 +51,9 @@ const getAllDoctors = function() {
 
 //   Session API Methods
 const createOneSession = function(data) {
-  console.log(data)
-  console.log(data.session)
-  console.log(data.doctor)
+  // console.log(data)
+  // console.log(data.session)
+  // console.log(data.doctor)
     return $.ajax({
       url: config.apiUrl + '/sessions',
       method: 'POST',

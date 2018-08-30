@@ -9,7 +9,7 @@ const onSignUpSuccess = function(data) {
 
 const onSignInSuccess = function(data) {
   $('.welcome-message').html('')
-  $(".resources").html('')
+  $(".see-all-doctors-div").html('')
   const showHTML = (`
       <br>
       <hr>
@@ -38,7 +38,6 @@ const onChangePwSuccess = function() {
 
 const onSignOutSuccess = function() {
   $(".message").html('')
-  $("#oneModalLabel").html('Success!')
   const showHTML = (`
   <h4>User Logged out</h4>
   <p>Thank you for using Interpreter Assistant! Come back soon!</p>
@@ -52,7 +51,7 @@ const onSignOutSuccess = function() {
 
 // Doctor UI: See all doctors (ToDo: By clinic)
   const onGetAllDoctorsSuccess = function(data) {
-$(".see-all-doctors").html(' ')
+$(".see-all-doctors-div").html(' ')
   for (let i = 0; i < data.doctors.length; i++) {
     const showHTML = (`
       <p>${data.doctors[i].first_name} ${data.doctors[i].last_name}, ${data.doctors[i].title}, ${data.doctors[i].phone} || Clinic: ${data.doctors[i].clinic.abbreviation} (${data.doctors[i].clinic.name}) || Id: ${data.doctors[i]._id}<br />
@@ -60,33 +59,39 @@ $(".see-all-doctors").html(' ')
       <small>${data.doctors[i].clinic.description}</small></p>
       <hr>
     `)
+    // console.log(showHTML)
     $(".see-all-sessions").hide()
     $('.see-created-session').hide()
     $(".see-one-session").hide()
     $('.see-updated-session').hide
-    $(".see-all-doctors").append(showHTML)
+    $(".see-all-doctors-div").append(showHTML)
   }
 }
 
 // Sessions UI
 const onGetAllSessionsSuccess = function(data) {
+  console.log(data)
+  // console.log(data.sessions)
   $(".see-all-sessions").html(' ')
   // loop through API data
   for (let i = 0; i < data.sessions.length; i++) {
+    console.log(data.sessions)
     const showHTML = (`
-      <p>Session with ${data.sessions[i].doctor.first_name} ${data.sessions[i].doctor.last_name}, ${data.sessions[i].doctor.title}, ${data.sessions[i].doctor.phone}<br />
+      <p>Session with ${data.sessions[i].doctor.first_name} ${data.sessions[i].doctor.last_name}, ${data.sessions[i].doctor.
+      title}, ${data.sessions[i].doctor.phone}<br />
       My Notes (<small>Written on: ${data.sessions[i].createdAt}</small>):<br />
       <small>${data.sessions[i].notes}</small></p>
       <p><small>Session Id: ${data.sessions[i]._id} || Doctor Id: ${data.sessions[i].doctor._id}</small></p>
       <hr>
-    `)      
+    `)  
+    console.log(showHTML)
     $(".see-all-sessions").append(showHTML)
-     $('.see-created-session').hide()
+    $('.see-created-session').hide()
     $(".see-one-session").hide()
     $('.see-updated-session').hide()
   }
 }
-{/* <p><small>|| Doctor ID: ${data.doctor[i].id}</small></p> */}
+
 const onCreateOneSessionSuccess = function (data) {
   store.session = data.sessions
   // console.log(data)
