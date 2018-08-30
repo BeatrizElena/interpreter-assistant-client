@@ -92,7 +92,7 @@ figure {
   clear: both;
 }
 
-#welcome {
+#welcome-message {
   text-align: center;
   font-weight: 700;
   font-size: 20px;
@@ -100,7 +100,7 @@ figure {
 }
 
 .auth {
-  display: none;
+  /* display: none; */
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -125,7 +125,7 @@ figure {
 .tab {
   background-color:#bbb;
   display: block;
-  height: 40px;
+  height: 850px;
   line-height: 40px;
   text-align: center;
   width: 100px;

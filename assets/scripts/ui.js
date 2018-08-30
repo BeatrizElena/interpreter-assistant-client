@@ -1,5 +1,4 @@
 const store = require('./store.js')
-const w3 = require('./w3.js')
 
 const onSignUpSuccess = function(data) {
     $("signup").removeClass("select")
@@ -9,36 +8,28 @@ const onSignUpSuccess = function(data) {
   }
 
 const onSignInSuccess = function(data) {
-  $('.message').html('')
+  $('.welcome-message').html('')
   const showHTML = (`
+      <br>
+      <form class="form-inline border" id="change-password-form">
+      <input type="password" name="passwords[old]" placeholder="Old-Password">
+      <input type="password" name="passwords[new]" placeholder="New-Password">
+      <div class="form-group col-md-12">
+        <button type="submit" id="changePassword" class="btn btn-info btn-sm">Change Password</button>
+      </div>
+    </form>
+      <hr>
       <h2 id="welcome">Welcome to your Interpreter Assistant</h2>
       <hr>
-      <br>
     `)
-  $(".message").html(showHTML)
+  $(".welcome-message").html(showHTML)
+  $('.show-after-login').show()
   $("tab-box").css("display", "none")
   // $(".signup").css("display", "none")
   // $(".signin").css("display", "none")
   $(".user").css("display", "none")
   $(".resources").css("display", "flex")
   store.user = data.user
-}
-
-const onShowPasswordFormSuccess = function() {
-  $('.change-password-div').html('')
-  $(".message").html('')
-  const showHTML = (`
-    <form class="form-inline border" id="change-password-form">
-    <input type="password" name="passwords[old]" placeholder="Old-Password">
-    <input type="password" name="passwords[new]" placeholder="New-Password">
-    <div class="form-group col-md-12">
-      <button type="submit" id="changePassword" class="btn btn-info btn-sm">Change Password</button>
-    </div>
-    </form>
-    <hr>
-    `)
-  $(".change-password-div").html(showHTML)
-  $(".message").fadeOut("slow")
 }
 
 const onChangePwSuccess = function() {
@@ -72,10 +63,10 @@ $(".see-all-doctors").html(' ')
       <small>${data.doctors[i].clinic.description}</small></p>
       <hr>
     `)
-    // $(".see-all-sessions").hide()
-    // $('.see-created-session').hide()
-    // $(".see-one-session").hide()
-    // $('.see-updated-session').hide
+    $(".see-all-sessions").hide()
+    $('.see-created-session').hide()
+    $(".see-one-session").hide()
+    $('.see-updated-session').hide
     $(".see-all-doctors").append(showHTML)
   }
 }
@@ -93,6 +84,9 @@ const onGetAllSessionsSuccess = function(data) {
       <hr>
     `)      
     $(".see-all-sessions").append(showHTML)
+     $('.see-created-session').hide()
+    $(".see-one-session").hide()
+    $('.see-updated-session').hide()
   }
 }
 {/* <p><small>|| Doctor ID: ${data.doctor[i].id}</small></p> */}
@@ -108,6 +102,10 @@ const onCreateOneSessionSuccess = function (data) {
     <p>${store.session.doctor.disease}</p>    
   `)
   $('.see-created-session').append(showHTML)
+  $('.see-all-doctors').hide()
+  $(".see-all-sessions").hide()
+  $(".see-one-session").hide()
+  $('.see-updated-session').hide()
   // empty values from form fields
   // $("input[type=text], textarea").val("")
 }
@@ -121,8 +119,11 @@ const onSeeOneSessionSuccess = function (data) {
       <small>Session Created On: ${data.session.createdAt}</small></p>
       <p><small>${data.session.notes}</small></p>
       <hr>
-    `)      
-    $(".see-one-session").append(showHTML)
+    `)
+    $(".see-all-sessions").hide()
+    $('.see-all-doctors').hide()
+    $('.see-updated-session').hide()    
+    $(".see-one-session").append(showHTML) 
 }
 
 const onUpdateOneSessionSuccess = function (data) {
@@ -136,6 +137,10 @@ const onUpdateOneSessionSuccess = function (data) {
     <p>${store.session.doctor.disease}</p> 
   `)
   $('.see-updated-session').append(showHTML)
+  $('.see-all-doctors').hide()
+  $(".see-all-sessions").hide()
+  $(".see-one-session").hide()
+  $('.see-updated-session').hide()
 }
 
 const onDeleteOneSessionSuccess = function () {
@@ -145,7 +150,7 @@ const onDeleteOneSessionSuccess = function () {
     <br>
   `)
   $('.deleted-message').append(showHTML)
-  $('.deleted-message').fadeOut("slow")
+  // $('.deleted-message').fadeOut("slow")
 }
 
   
@@ -182,7 +187,7 @@ $("input[type=text], textarea").val("")
 module.exports = {
   onSignUpSuccess,
   onSignInSuccess,
-  onShowPasswordFormSuccess,
+  // onShowPasswordFormSuccess,
   onChangePwSuccess,
   onSignOutSuccess,
   onGetAllDoctorsSuccess,

@@ -52,6 +52,8 @@ const getAllDoctors = function() {
 //   Session API Methods
 const createOneSession = function(data) {
   console.log(data)
+  console.log(data.session)
+  console.log(data.doctor)
     return $.ajax({
       url: config.apiUrl + '/sessions',
       method: 'POST',
@@ -59,10 +61,12 @@ const createOneSession = function(data) {
         Authorization: 'Token token=' + store.user.token
       },
       data: {
-        "session": {
-          "doctor": data.doctor,
-          "notes": data.notes
-        }
+        "doctor": data.doctor,
+        "notes": data.notes
+        // "session": {
+        //   "doctor": data.session.doctor,
+        //   "notes": data.session.notes
+        // }
       }
     })
   }

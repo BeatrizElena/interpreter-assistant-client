@@ -22,10 +22,10 @@ const signIn = function(event) {
   $("#sign-in-form")[0].reset()
 }
 
-const seePasswordForm = function(event){
-  event.preventDefault()
-  ui.onShowPasswordFormSuccess
-}
+// const seePasswordForm = function(event){
+//   event.preventDefault()
+//   ui.onShowPasswordFormSuccess
+// }
 
 const changePassword = function(event) {
   event.preventDefault()
@@ -120,7 +120,7 @@ const tabbedFormLogin = function(event) {
 const addHandlers = () => {
   $('#sign-up-form').on('submit', signUp)
   $('#sign-in-form').on('submit', signIn)
-  $('#changePass').on('submit', seePasswordForm)
+  // $('#changePass').on('submit', seePasswordForm)
   $('#change-password-form').on('submit', changePassword)
   $('#sign-out-form').on('click', signOut)
   $('#see-all-doctors-form').on('submit', seeAllDoctors)
