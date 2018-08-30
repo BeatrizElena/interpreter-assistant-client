@@ -9,15 +9,9 @@ const onSignUpSuccess = function(data) {
 
 const onSignInSuccess = function(data) {
   $('.welcome-message').html('')
+  $(".resources").html('')
   const showHTML = (`
       <br>
-      <form class="form-inline border" id="change-password-form">
-      <input type="password" name="passwords[old]" placeholder="Old-Password">
-      <input type="password" name="passwords[new]" placeholder="New-Password">
-      <div class="form-group col-md-12">
-        <button type="submit" id="changePassword" class="btn btn-info btn-sm">Change Password</button>
-      </div>
-    </form>
       <hr>
       <h2 id="welcome">Welcome to your Interpreter Assistant</h2>
       <hr>
@@ -51,6 +45,9 @@ const onSignOutSuccess = function() {
   `)
   $(".message").html(showHTML)
   $(".message").fadeOut("slow")
+  $("tab-box").css("display", "flex")
+  $(".user").css("display", "flex")
+  $(".resources").css("display", "none")
 }
 
 // Doctor UI: See all doctors (ToDo: By clinic)
