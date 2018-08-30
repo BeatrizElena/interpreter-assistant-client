@@ -51,11 +51,9 @@ const onSignOutSuccess = function() {
 
 // Doctor UI: See all doctors (ToDo: By clinic)
   const onGetAllDoctorsSuccess = function(data) {
-$(".see-all-doctors-div").html(' ')
+$(".see-all-doctors-div").html('<h4>List of Doctors<br><small>Use the doctor\'s ID to create a session with your own notes</small></h4>')
   for (let i = 0; i < data.doctors.length; i++) {
     const showHTML = (`
-      <h4> List of Doctors</h4>
-      <p><small>Use the doctor's ID to create a session with your own notes</small></p>
       <p>${data.doctors[i].first_name} ${data.doctors[i].last_name}, ${data.doctors[i].title}, ${data.doctors[i].phone} || Clinic: ${data.doctors[i].clinic.abbreviation} (${data.doctors[i].clinic.name}) || Id: ${data.doctors[i]._id}<br />
       Clinic Information:<br />
       <small>${data.doctors[i].clinic.description}</small></p>
@@ -70,13 +68,13 @@ $(".see-all-doctors-div").html(' ')
   }
 }
 
-const stringTemplate = function(sessionString) {
-  return `<p>Session with ${sessionString.doctor.first_name} ${sessionString.doctor.last_name}, ${sessionString.doctor.title}, ${sessionString.doctor.phone}<br />
-    My Notes (<small>Written on: ${sessionString.createdAt}</small>):<br />
-    <small>${sessionString.notes}</small></p>
-    <p><small>Session Id: ${sessionString._id} || Doctor Id: ${sessionString.doctor._id}</small></p>
-    <hr>`
-}
+// const stringTemplate = function(sessionString) {
+//   return `<p>Session with ${sessionString.doctor.first_name} ${sessionString.doctor.last_name}, ${sessionString.doctor.title}, ${sessionString.doctor.phone}<br />
+//     My Notes (<small>Written on: ${sessionString.createdAt}</small>):<br />
+//     <small>${sessionString.notes}</small></p>
+//     <p><small>Session Id: ${sessionString._id} || Doctor Id: ${sessionString.doctor._id}</small></p>
+//     <hr>`
+// }
 // Sessions UI
 const onGetAllSessionsSuccess = function(data) {
   // console.log(data)
@@ -90,7 +88,7 @@ const onGetAllSessionsSuccess = function(data) {
   
   console.log("before for loop")
   for (let i = 0; i < data.sessions.length; i++) {
-    console.log('in loop')
+    // console.log('in loop')
     const sessionString = data.sessions[i]
     //const showHTML = ()
     $(".see-all-sessions-div").append(`<p>Session with ${sessionString.doctor.first_name} ${sessionString.doctor.last_name}, ${sessionString.doctor.title}, ${sessionString.doctor.phone}<br />
@@ -138,16 +136,17 @@ const onSeeOneSessionSuccess = function (data) {
       <p><small>${data.session.notes}</small></p>
       <hr>
     `)
+    $(".see-one-session-div").append(showHTML) 
     $(".see-all-sessions-div").hide()
     $('.see-all-doctors-div').hide()
-    // $('.see-updated-session').hide()    
-    $(".see-one-session-div").append(showHTML) 
+    // $('.see-updated-session').hide()  
 }
 
 const onUpdateOneSessionSuccess = function (data) {
   store.session = data.session
+  console.log(store.session)
   const selector = '.see-updated-session-div'
-  $('.see-updated-session-div').html('')
+  $(selector).html('')
   const showHTML = (`
     <h6>My Notes with <h5>${store.session.doctor.first_name} ${store.session.doctor.last_name}, ${store.session.doctor.title}, ${store.session.doctor.phone}, ${store.session.doctor.clinic}</h6>
     <p>Session Created On: ${data.session.createdAt}</p>
@@ -155,7 +154,7 @@ const onUpdateOneSessionSuccess = function (data) {
     <p>Session ID: ${store.session.id}, Doctor ID: ${data.doctor.id}</p>
     <p>${store.session.doctor.disease}</p> 
   `)
-  $(selector).append(showHTML).show().addClass("flash")
+  $(selector).append(showHTML).show()
   $('.see-all-doctors-div').hide()
   $(".see-all-sessions-div").hide()
   $(".see-one-session-div").hide()
@@ -169,7 +168,11 @@ const onDeleteOneSessionSuccess = function () {
     <br>
   `)
   $('.deleted-message').append(showHTML)
-  // $('.deleted-message').fadeOut("slow")
+  $('.see-all-doctors-div').hide()
+  $(".see-all-sessions-div").hide()
+  $(".see-one-session-div").hide()
+  $('.see-updated-session-div').hide()
+  $('.deleted-message').delay(3000).fadeOut()
 }
 
   

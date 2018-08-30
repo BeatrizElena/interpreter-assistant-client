@@ -100,6 +100,10 @@ figure {
 }
 
 .flash {
+  background-color: yellowgreen;
+}
+
+/* .flash {
   -moz-animation: flash 1s ease-out;
   -moz-animation-iteration-count: 1;
 
@@ -132,7 +136,7 @@ figure {
     0% { background-color: transparent; }
     50% { background-color: #fbf8b2; }
     100% { background-color: transparent; }
-}
+} */
 
 .auth {
   /* display: none; */
