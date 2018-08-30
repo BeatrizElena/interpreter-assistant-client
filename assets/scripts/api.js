@@ -42,32 +42,30 @@ const signOut = function() {
 const getAllDoctors = function() {
   return $.ajax({
     url: config.apiUrl + '/doctors',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
+    method: 'GET'
+    
   })
 }
 
+// from getAllDoctors, below method
+// headers: {
+//   Authorization: 'Token token=' + store.user.token
+// }
+
 //   Session API Methods
 const createOneSession = function(data) {
-  // console.log(data)
-  // console.log(data.session)
-  // console.log(data.doctor)
+  // console.log(data) gets doctor id and created note
+  // console.log(data.session) gets undefined
+  // console.log(data.sessions) gets undefined
+  // console.log(data.doctor) gets undefined
+  // debugger
     return $.ajax({
       url: config.apiUrl + '/sessions',
       method: 'POST',
       headers: {
         Authorization: 'Token token=' + store.user.token
       },
-      data: {
-        "doctor": data.doctor,
-        "notes": data.notes
-        // "session": {
-        //   "doctor": data.session.doctor,
-        //   "notes": data.session.notes
-        // }
-      }
+      data
     })
   }
   

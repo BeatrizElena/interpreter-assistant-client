@@ -54,6 +54,8 @@ const onSignOutSuccess = function() {
 $(".see-all-doctors-div").html(' ')
   for (let i = 0; i < data.doctors.length; i++) {
     const showHTML = (`
+      <h4> List of Doctors</h4>
+      <p><small>Use the doctor's ID to create a session with your own notes</small></p>
       <p>${data.doctors[i].first_name} ${data.doctors[i].last_name}, ${data.doctors[i].title}, ${data.doctors[i].phone} || Clinic: ${data.doctors[i].clinic.abbreviation} (${data.doctors[i].clinic.name}) || Id: ${data.doctors[i]._id}<br />
       Clinic Information:<br />
       <small>${data.doctors[i].clinic.description}</small></p>
@@ -68,42 +70,56 @@ $(".see-all-doctors-div").html(' ')
   }
 }
 
+const stringTemplate = function(sessionString) {
+  return `<p>Session with ${sessionString.doctor.first_name} ${sessionString.doctor.last_name}, ${sessionString.doctor.title}, ${sessionString.doctor.phone}<br />
+    My Notes (<small>Written on: ${sessionString.createdAt}</small>):<br />
+    <small>${sessionString.notes}</small></p>
+    <p><small>Session Id: ${sessionString._id} || Doctor Id: ${sessionString.doctor._id}</small></p>
+    <hr>`
+}
 // Sessions UI
 const onGetAllSessionsSuccess = function(data) {
-  console.log(data)
+  // console.log(data)
   // console.log(data.sessions)
-  $(".see-all-sessions").html(' ')
+  // $(".see-all-sessions-div").html(' ')
   // loop through API data
+  $(".see-all-sessions-div").html(`
+  <h4>My Sessions</h4>
+  <p><small>Use the session's ID to see, update, or delete one of your sessions</small></p>
+  `)
+  
+  console.log("before for loop")
   for (let i = 0; i < data.sessions.length; i++) {
-    console.log(data.sessions)
-    const showHTML = (`
-      <p>Session with ${data.sessions[i].doctor.first_name} ${data.sessions[i].doctor.last_name}, ${data.sessions[i].doctor.
-      title}, ${data.sessions[i].doctor.phone}<br />
-      My Notes (<small>Written on: ${data.sessions[i].createdAt}</small>):<br />
-      <small>${data.sessions[i].notes}</small></p>
-      <p><small>Session Id: ${data.sessions[i]._id} || Doctor Id: ${data.sessions[i].doctor._id}</small></p>
-      <hr>
-    `)  
-    console.log(showHTML)
-    $(".see-all-sessions").append(showHTML)
+    console.log('in loop')
+    const sessionString = data.sessions[i]
+    //const showHTML = ()
+    $(".see-all-sessions-div").append(`<p>Session with ${sessionString.doctor.first_name} ${sessionString.doctor.last_name}, ${sessionString.doctor.title}, ${sessionString.doctor.phone}<br />
+    My Notes (<small>Written on: ${sessionString.createdAt}</small>):<br />
+    <small>${sessionString.notes}</small></p>
+    <p><small>Session Id: ${sessionString._id} || Doctor Id: ${sessionString.doctor._id}</small></p>
+    <hr>`)
+    $(".see-all-sessions-div").show()
+    $(".see-all-doctors-div").hide()
     $('.see-created-session').hide()
     $(".see-one-session").hide()
     $('.see-updated-session').hide()
   }
+  // DANGER CODE NEVER GETS HERE
 }
 
 const onCreateOneSessionSuccess = function (data) {
+  console.log(data)
+  const create_content = 'see-created-session-div'
   store.session = data.sessions
-  // console.log(data)
-  $('.see-created-session').html('')
+  $(create_content).html('')
   const showHTML = (`
-    <h6>My Notes with <h5>${store.session.doctor.first_name} ${store.session.doctor.last_name}, ${store.session.doctor.title}, ${store.session.doctor.phone}, ${store.session.doctor.clinic}</h6>
-    <p>Session Created On: ${data.session.createdAt}</p>
-    <p>${store.session.notes}</p>
-    <p>Session ID: ${store.session.id}, Doctor ID: ${data.doctor.id}</p>
-    <p>${store.session.doctor.disease}</p>    
+    <h6>My Notes with <h5>${store.sessions.doctor.first_name} ${store.session.doctor.last_name}, ${store.session.doctor.title}, ${store.session.doctor.phone}, ${store.session.doctor.clinic}</h6>
+    <p>Session Created On: ${data.sessions.createdAt}</p>
+    <p>${store.sessions.notes}</p>
+    <p>Session ID: ${store.sessions.id}, Doctor ID: ${data.session.doctor.id}</p>
+    <p>${store.sessions.doctor.disease}</p>    
   `)
-  $('.see-created-session').append(showHTML)
+  $(create_content).append(showHTML).show()
   $('.see-all-doctors').hide()
   $(".see-all-sessions").hide()
   $(".see-one-session").hide()
@@ -115,22 +131,23 @@ const onCreateOneSessionSuccess = function (data) {
 const onSeeOneSessionSuccess = function (data) {
   // console.log(data.session)
   // console.log(data.session.doctor.first_name)
-  $(".see-one-session").html(' ')
+  $(".see-one-session-div").html(' ')
   const showHTML = (`
       <p>My Session Notes for: ${data.session.doctor.first_name} ${data.session.doctor.last_name}, ${data.session.doctor.title}, ${data.session.doctor.phone}<br />
       <small>Session Created On: ${data.session.createdAt}</small></p>
       <p><small>${data.session.notes}</small></p>
       <hr>
     `)
-    $(".see-all-sessions").hide()
-    $('.see-all-doctors').hide()
-    $('.see-updated-session').hide()    
-    $(".see-one-session").append(showHTML) 
+    $(".see-all-sessions-div").hide()
+    $('.see-all-doctors-div').hide()
+    // $('.see-updated-session').hide()    
+    $(".see-one-session-div").append(showHTML) 
 }
 
 const onUpdateOneSessionSuccess = function (data) {
   store.session = data.session
-  $('.see-updated-session').html('')
+  const selector = '.see-updated-session-div'
+  $('.see-updated-session-div').html('')
   const showHTML = (`
     <h6>My Notes with <h5>${store.session.doctor.first_name} ${store.session.doctor.last_name}, ${store.session.doctor.title}, ${store.session.doctor.phone}, ${store.session.doctor.clinic}</h6>
     <p>Session Created On: ${data.session.createdAt}</p>
@@ -138,11 +155,11 @@ const onUpdateOneSessionSuccess = function (data) {
     <p>Session ID: ${store.session.id}, Doctor ID: ${data.doctor.id}</p>
     <p>${store.session.doctor.disease}</p> 
   `)
-  $('.see-updated-session').append(showHTML)
-  $('.see-all-doctors').hide()
-  $(".see-all-sessions").hide()
-  $(".see-one-session").hide()
-  $('.see-updated-session').hide()
+  $(selector).append(showHTML).show().addClass("flash")
+  $('.see-all-doctors-div').hide()
+  $(".see-all-sessions-div").hide()
+  $(".see-one-session-div").hide()
+  $('.see-updated-session-div').hide()
 }
 
 const onDeleteOneSessionSuccess = function () {

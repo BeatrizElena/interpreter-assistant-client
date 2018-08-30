@@ -31,7 +31,7 @@
           <nav id="ortiz-main-menu" role="navigation">
             <ul>
               <li class="ortiz-active">
-                <a href="index.html">Dive In!</a>
+                <a href="#">Dive In!</a>
               </li>
               <!-- <li>
                 <a href="#">Change Password</a>
@@ -56,9 +56,29 @@
                 </div>
                 <!-- <a href="#">See All Doctors</a> -->
               </li>
-              <!-- <li>
-                <a href="#">Create A Session</a>
-              </li> -->
+              <li>
+                <div class="show-after-login">
+                  <hr>
+                  <p><small>Use the session ID to see or delete a session</small></p>
+                  <form class="doctors" id="see-one-session-form">
+                    <div class="form-group">
+                      <input type="text" name="session[id]" class="form-control" placeholder="Session ID Here">
+                      <button type="submit" class="btn btn-info btn-sm">See One Session</button>
+                    </div>
+                  </form>
+                </div>
+              </li>
+              <li>
+                <div class="show-after-login">
+                  <form class="doctors" id="delete-one-session-form">
+                      <div class="form-group">
+                        <input type="text" name="session[id]" class="form-control" placeholder="Session ID Here">
+                        <button type="submit" class="btn btn-info btn-sm">Delete One Session</button>
+                      </div>
+                    </form>
+                    <hr>
+                </div>
+              </li>
             </ul>
           </nav>
           <div class="ortiz-footer show-after-login">
@@ -122,7 +142,7 @@
 
             <div class="resources">
               <div class="flex-container">
-                  <div flex-item password-change-div>
+                  <div class='flex-item password-change-div'>
                       <form class="form-inline border" id="change-password-form">
                         <input type="password" name="passwords[old]" placeholder="Old-Password">
                         <input type="password" name="passwords[new]" placeholder="New-Password">
@@ -132,28 +152,31 @@
                       </form>
                     </div>
                 <div class="welcome-message flex-item"></div>
+                <div class="flex-item deleted-message"></div>
                 <div class="message flex-item"></div>
                 <div class="flex-item see-all-doctors-div"></div>
-                <div class="flex-item see-all-sessions"></div>
-                <div class="flex-item see-one-session"></div>
+                <div class="flex-item see-all-sessions-div"></div>
+                <div class="flex-item see-one-session-div"></div>
+
+                
                 <div class="flex-item">
                   <h4>Add Your Notes to the Session</h4>
                   <form class="border doctors" id="create-one-session-form">
                     <div class="form-group">
-                      <input type="text" name="doctor" class="search_doctor form-control" placeholder="Doctor Id">
+                      <input type="text" name="session[doctor]" class="search_doctor form-control" placeholder="Doctor Id">
                     </div>
                     <div class="form-group">
-                      <textarea name="notes" class="search_doctor form-control" rows="10" cols="80" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)"></textarea>
+                      <textarea name="session[notes]" class="search_doctor form-control" rows="10" cols="80" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)"></textarea>
                     </div>
                     <button type="submit" class="btn btn-info btn-sm">Submit</button>
                     </span>
                   </form>
                 </div>
-                <div class="flex-item see-created-session"></div>
+                <div class="flex-item see-created-session-div"></div>
                 <hr>
 
 
-                <div class="flex-item>">
+                <!-- <div class="flex-item>">
                   <h4>See One Session</h4>
                   <form class="doctors" id="see-one-session-form">
                     <div class="form-group">
@@ -161,8 +184,8 @@
                       <button type="submit" class="btn btn-info btn-sm">Submit</button>
                     </div>
                   </form>
-                </div>
-                <hr>
+                </div> -->
+                <!-- <hr> -->
 
                 <hr>
                 <div class="flex-item>">
@@ -178,21 +201,17 @@
                       </span>
                     </form>
                 </div>
-                <div class="flex-item see-updated-session"></div>
-                <hr>
+                <div class="flex-item see-updated-session-div"></div>
 
-                <hr>
-
-                <div class="flex-item>">
-                  <h4>Delete One Session</h4>
-                  <form class="doctors" id="delete-one-session-form">
+                <!-- <div class="flex-item>"> -->
+                  <!-- <h4>Delete One Session</h4> -->
+                  <!-- <form class="doctors" id="delete-one-session-form">
                     <div class="form-group">
                       <input type="text" name="session[id]" class="form-control" placeholder="Session ID Here">
                       <button type="submit" class="btn btn-info btn-sm">Delete</button>
                     </div>
-                  </form>
-                </div>
-                <div class="flex-item deleted-message"></div>
+                  </form> -->
+                <!-- </div> -->
               </div>
             </div>
           </aside>
