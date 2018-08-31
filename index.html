@@ -24,67 +24,75 @@
 
   <div class="centered">
     <div class="form1">
-        <form id="register-form" class="register-form-class">
+        <form id="sign-up-form" class="register-form-class">
         <legend>Create an Account</legend>
+        <input id="firstname-register" name="credentials[first_name]" type="text" size="40" placeholder="first name">
+        <input id="lastname-register" name="credentials[last_name]" type="text" size="40" placeholder="last name">
         <input id="email-register" name="credentials[email]" type="email" size="40" placeholder="email">
         <input id="pw-register" name="credentials[password]" type="password" placeholder="password">
         <input id="pwconf-register" name="credentials[password_confirmation]" type="password" placeholder="confirm password">
         <br />
         <button id="register" type="submit">Register</button>
       </form>
+      <br>
     </div>
 
     <div class="form2">
-        <form id="login-form" class="login-form-class">
+        <form id="sign-in-form" class="login-form-class">
         <legend>Login</legend>
         <input id="email-login" name="credentials[email]" type="email" size="40" placeholder="email">
         <input id="pw-login" name="credentials[password]" type="password" placeholder="password">
         <br />
-        <button id="register" type="submit">Register</button>
+        <button id="login" type="submit">Sign In</button>
       </form>
+      <br>
     </div>
 
-    <div class="dashdiv">
-        <form id="change-pw-form" class="form-inline">
+    <div>
+        <br>
+        <form id="change-password-form" class="form-inline">
           <input id="pw-change" name="passwords[old]" type="password" placeholder="old password">
           <input id="pw-change-conf" name="passwords[new]" type="password" placeholder="new password">
           <button id="pw-change-submit" type="submit">Change Password</button>
         </form>
+        <br>
       </div>
 
       <div class="dashdiv">
-          <form id="logout-form" class="logout-form-class">
+        <br>
+          <form id="sign-out-form" class="logout-form-class">
             <button id="logoutbutton" type="submit">Logout</button>
           </form>
+        <br>
         </div>      
   </div>
 
   <div class="flex-container">
     <div class="flex-item">
-      <form id="index-doctors-form" class="index-doctors-form-class">
+      <form id="see-all-doctors-form" class="index-doctors-form-class">
         <legend>See All Doctors</legend>
         <button id="index-doctors" type="submit">View All</button>
       </form>
     </div>
 
     <div class="flex-item">
-      <form id="index-sessions-form" class="index-sessions-form-class">
+      <form id="see-all-sessions-form" class="index-sessions-form-class">
         <legend>See My Sessions</legend>
         <button id="index-sessions" type="submit">View All</button>
       </form>
     </div>
 
     <div class="flex-item">
-        <form id="create-form" class="create-form-class">
+        <form id="create-one-session-form" class="create-form-class">
           <legend>Add a Session</legend>
           <input type="text" id="create-session" name="doctorReference" placeholder="doctor ID">
-          <input type="text" id="notes" name="notes" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)">
+          <input type="text" id="notes-create" name="notes" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)">
           <button id="create" type="submit">Add</button>
         </form>
       </div>
 
       <div class="flex-item">
-          <form id="see-one-form" class="create-one-form-class">
+          <form id="see-one-session-form" class="create-one-form-class">
             <legend>See a Session</legend>
             <input type="text" id="see-one-session" name="id" placeholder="session ID">
             <button id="see-one" type="submit">View One</button>
@@ -92,16 +100,16 @@
       </div>
 
       <div class="flex-item">
-          <form id="update-one-form" class="update-one-form-class">
+          <form id="update-one-session-form" class="update-one-form-class">
             <legend>Update a Session</legend>
             <input type="text" id="update-one-session" name="id" placeholder="session ID">
-            <input type="text" id="notes" name="notes" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)">
-            <button id="see-one" type="submit">View One</button>
+            <input type="text" id="notes-update" name="notes" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)">
+            <button id="update-one" type="submit">View One</button>
           </form>
       </div>
 
       <div class="flex-item">
-          <form id="delete-one-form" class="delete-one-form-class">
+          <form id="delete-one-session-form" class="delete-one-form-class">
             <legend>Delete a Session</legend>
             <input type="text" id="delete-one-session" name="id" placeholder="session ID">
             <button id="delete-one" type="submit">Delete One</button>

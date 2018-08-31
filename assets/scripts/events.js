@@ -100,21 +100,21 @@ const deleteOneSession = function(event) {
   $("#delete-one-session-form")[0].reset()
 }
 
-const tabbedFormSignUp = function(event) {
-  event.preventDefault()
-  $("login").removeClass("select")
-  $("signup").addClass('select')
-  $("#login-box").slideUp()
-  $("#signup-box").slideDown()
-}
+// const tabbedFormSignUp = function(event) {
+//   event.preventDefault()
+//   $("login").removeClass("select")
+//   $("signup").addClass('select')
+//   $("#login-box").slideUp()
+//   $("#signup-box").slideDown()
+// }
 
-const tabbedFormLogin = function(event) {
-  event.preventDefault()
-  $("signup").removeClass("select")
-  $("login").addClass('select')
-  $("#signup-box").slideUp()
-  $("#login-box").slideDown()
-}
+// const tabbedFormLogin = function(event) {
+//   event.preventDefault()
+//   $("signup").removeClass("select")
+//   $("login").addClass('select')
+//   $("#signup-box").slideUp()
+//   $("#login-box").slideDown()
+// }
 
 
 const addHandlers = () => {
@@ -129,8 +129,8 @@ const addHandlers = () => {
   $('#see-one-session-form').on('submit', seeOneSession)
   $('#update-one-session-form').on('submit', updateOneSession)
   $('#delete-one-session-form').on('submit', deleteOneSession)
-  $('#signup').on('click', tabbedFormSignUp)
-  $('#login').on('click', tabbedFormLogin)
+  // $('#signup').on('click', tabbedFormSignUp)
+  // $('#login').on('click', tabbedFormLogin)
 }
 
 module.exports = {

@@ -42,30 +42,27 @@ const signOut = function() {
 const getAllDoctors = function() {
   return $.ajax({
     url: config.apiUrl + '/doctors',
-    method: 'GET'
-    
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
-// from getAllDoctors, below method
-// headers: {
-//   Authorization: 'Token token=' + store.user.token
-// }
-
 //   Session API Methods
 const createOneSession = function(data) {
-  // console.log(data) gets doctor id and created note
-  // console.log(data.session) gets undefined
-  // console.log(data.sessions) gets undefined
-  // console.log(data.doctor) gets undefined
-  // debugger
     return $.ajax({
       url: config.apiUrl + '/sessions',
       method: 'POST',
       headers: {
         Authorization: 'Token token=' + store.user.token
       },
-      data
+      data: {
+        "session": {
+          "doctorReference": `${data.doctorReference}`,
+          "notes": `${data.notes}`
+        }
+      }
     })
   }
   
@@ -81,7 +78,7 @@ const createOneSession = function(data) {
   
   const seeOneSession = function (data) {
     return $.ajax({
-      url: config.apiUrl + '/sessions/' + data.session.id,
+      url: config.apiUrl + '/sessions/' + data.id,
       method: 'GET',
       headers: {
         Authorization: 'Token token=' + store.user.token
@@ -91,19 +88,23 @@ const createOneSession = function(data) {
   
   const updateOneSession = function (data) {
     return $.ajax({
-      url: config.apiUrl + '/sessions/' + data.session.id,
+      url: config.apiUrl + '/sessions/' + data.id,
       method: 'PATCH',
       headers: {
         Authorization: 'Token token=' + store.user.token
       },
-      data
+      data: {
+        "session": {
+          "notes": `${data.notes}`
+        }
+      }
     })
   }
   
   const deleteOneSession = function (data) {
-    console.log(data)
+    // console.log(data)
     return $.ajax({
-      url: config.apiUrl + '/sessions/' + data.session.id,
+      url: config.apiUrl + '/sessions/' + data.id,
       method: 'DELETE',
       headers: {
         Authorization: 'Token token=' + store.user.token
