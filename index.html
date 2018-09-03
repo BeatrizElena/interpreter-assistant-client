@@ -16,73 +16,84 @@
 </head>
 
 <body>
-  <div id="letterhead">
-    <p id="header"><span class="header">I</span>nterpreter<span class="header">A</span>ssistant</p>
-    <p class="intro">Quickly learn about the doctor's clinic and specialty before you go to your interpreting session.</p>
-    <p class="intro">Add your own notes. Prepare. Debrief. Reflect.</p>
-  </div>
+  
 
-  <div class="centered">
-    <div class="form1">
-        <form id="sign-up-form" class="register-form-class">
-        <legend>Create an Account</legend>
-        <input id="firstname-register" name="credentials[first_name]" type="text" size="40" placeholder="first name">
-        <input id="lastname-register" name="credentials[last_name]" type="text" size="40" placeholder="last name">
-        <input id="email-register" name="credentials[email]" type="email" size="40" placeholder="email">
-        <input id="pw-register" name="credentials[password]" type="password" placeholder="password">
-        <input id="pwconf-register" name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+<div class="column left">
+  <aside id="ortiz-aside" role="complementary">
+    <div id="letterhead">
+      <p id="header">Interpreter Assistant</p>
+      <p class="intro">Quickly learn about the doctor's clinic and specialty before you go to your interpreting
+        session.</p>
+      <p class="intro">Add your own notes. Prepare. Debrief. Reflect.</p>
+    </div>
+
+    <div class="flex-container left-container"></div>
+    <div class="left-div">
+      <form id="see-all-doctors-form" class="index-doctors-form-class show-after-login">
+        <button id="index-doctors" type="submit">View All Doctors</button>
+      </form>
+    </div>
+
+    <div class="left-div">
+      <form id="see-all-sessions-form" class="index-sessions-form-class show-after-login">
+        <button id="index-sessions" name="doctorReference" type="submit">View All Sessions</button>
+      </form>
+    </div>
+
+    <div class="left-div">
+      <form id="change-password-form" class="form-inline show-after-login">
+        <input id="pw-change" name="passwords[old]" type="password" placeholder="old password">
         <br />
-        <button id="register" type="submit">Register</button>
+        <input id="pw-change-conf" name="passwords[new]" type="password" placeholder="new password">
+        <br />
+        <button id="pw-change-submit" type="submit">Change Password</button>
+      </form>
+    </div>
+
+    <div class="left-div">
+      <br>
+      <form id="sign-out-form" class="logout-form-class show-after-login">
+        <button id="logoutbutton" type="submit">Logout</button>
       </form>
       <br>
     </div>
+  </aside>
+</div>
 
-    <div class="form2">
-        <form id="sign-in-form" class="login-form-class">
-        <legend>Login</legend>
-        <input id="email-login" name="credentials[email]" type="email" size="40" placeholder="email">
-        <input id="pw-login" name="credentials[password]" type="password" placeholder="password">
-        <br />
-        <button id="login" type="submit">Sign In</button>
-      </form>
-      <br>
+  <div class="column right flex-container">
+    <div id="message" class="flex-item">
+
     </div>
 
-    <div>
-        <br>
-        <form id="change-password-form" class="form-inline">
-          <input id="pw-change" name="passwords[old]" type="password" placeholder="old password">
-          <input id="pw-change-conf" name="passwords[new]" type="password" placeholder="new password">
-          <button id="pw-change-submit" type="submit">Change Password</button>
-        </form>
-        <br>
-      </div>
 
-      <div class="dashdiv">
-        <br>
-          <form id="sign-out-form" class="logout-form-class">
-            <button id="logoutbutton" type="submit">Logout</button>
+    <div id="user-signup-signin" class="flex-item">
+        <div class="form1">
+            <form id="sign-up-form" class="register-form-class">
+            <legend>Create an Account</legend>
+            <input id="firstname-register" name="credentials[first_name]" type="text" size="40" placeholder="first name">
+            <input id="lastname-register" name="credentials[last_name]" type="text" size="40" placeholder="last name">
+            <input id="email-register" name="credentials[email]" type="email" size="40" placeholder="email">
+            <input id="pw-register" name="credentials[password]" type="password" placeholder="password">
+            <input id="pwconf-register" name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+            <br />
+            <button id="register" type="submit">Register</button>
           </form>
-        <br>
-        </div>      
-  </div>
-
-  <div class="flex-container">
-    <div class="flex-item">
-      <form id="see-all-doctors-form" class="index-doctors-form-class">
-        <legend>See All Doctors</legend>
-        <button id="index-doctors" type="submit">View All</button>
-      </form>
+          <br>
+        </div>
+    
+        <div class="form2">
+            <form id="sign-in-form" class="login-form-class">
+            <legend>Login</legend>
+            <input id="email-login" name="credentials[email]" type="email" size="40" placeholder="email">
+            <input id="pw-login" name="credentials[password]" type="password" placeholder="password">
+            <br />
+            <button id="login" type="submit">Sign In</button>
+          </form>
+          <br>
+        </div>
     </div>
 
-    <div class="flex-item">
-      <form id="see-all-sessions-form" class="index-sessions-form-class">
-        <legend>See My Sessions</legend>
-        <button id="index-sessions" type="submit">View All</button>
-      </form>
-    </div>
-
-    <div class="flex-item">
+    <div class="flex-item show-after-login">
         <form id="create-one-session-form" class="create-form-class">
           <legend>Add a Session</legend>
           <input type="text" id="create-session" name="doctorReference" placeholder="doctor ID">
@@ -91,7 +102,7 @@
         </form>
       </div>
 
-      <div class="flex-item">
+      <div class="flex-item show-after-login">
           <form id="see-one-session-form" class="create-one-form-class">
             <legend>See a Session</legend>
             <input type="text" id="see-one-session" name="id" placeholder="session ID">
@@ -99,7 +110,7 @@
           </form>
       </div>
 
-      <div class="flex-item">
+      <div class="flex-item show-after-login">
           <form id="update-one-session-form" class="update-one-form-class">
             <legend>Update a Session</legend>
             <input type="text" id="update-one-session" name="id" placeholder="session ID">
@@ -108,13 +119,15 @@
           </form>
       </div>
 
-      <div class="flex-item">
+      <div class="flex-item show-after-login">
           <form id="delete-one-session-form" class="delete-one-form-class">
             <legend>Delete a Session</legend>
             <input type="text" id="delete-one-session" name="id" placeholder="session ID">
             <button id="delete-one" type="submit">Delete One</button>
           </form>
-      </div>      
+      </div>  
+      
+      <div id="show-data" class="flex-item"></div>
   </div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

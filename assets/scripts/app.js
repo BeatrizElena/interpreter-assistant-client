@@ -3,7 +3,8 @@
 const events = require('./events.js')
 
 $(() => {
-  $('.resources').hide()
   $('.show-after-login').hide()
+  $('#message').hide()
+  $('#show-data').hide()
   events.addHandlers()
 })
