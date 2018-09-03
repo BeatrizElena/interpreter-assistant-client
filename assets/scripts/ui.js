@@ -29,6 +29,7 @@ const onSignOutSuccess = function() {
   $("#message").append('User Logged out. Thank you for using Interpreter Assistant! Come back soon!').show()
     .delay(1500).fadeOut() 
   $(".show-after-login").css("display", "none")
+  $("#show-data").css("display", "none")
   $(".form1").css("display", "flex")
   $(".form2").css("display", "flex")
 }
@@ -65,13 +66,6 @@ const onSignOutSuccess = function() {
       $("#show-data").append(showHTML).show()
   }
 }
-
-// const showHTML = (`
-//         <p>${data.doctors[i].first_name} ${data.doctors[i].last_name}, ${data.doctors[i].title}, ${data.doctors[i].phone} || Clinic: ${data.doctors[i].clinic.abbreviation} (${data.doctors[i].clinic.name}) || Id: ${data.doctors[i]._id}<br />
-//         Clinic Information:<br />
-//         <small>${data.doctors[i].clinic.description}</small></p>
-//         <hr>
-//       `)
 
 // Sessions UI
 const onGetAllSessionsSuccess = function(data) {
