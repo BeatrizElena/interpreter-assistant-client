@@ -109,7 +109,7 @@ const onGetAllSessionsSuccess = function(data) {
 const onCreateOneSessionSuccess = function (data) {
   $('#message').html('')
   $("#message").append('Session successfully created').show()
-    .delay(2000).fadeOut()
+    .delay(1500).fadeOut()
   // empty values from form fields
   // $("input[type=text], textarea").val("")
 }
@@ -146,7 +146,6 @@ const onSeeOneSessionSuccess = function (data) {
 const onUpdateOneSessionSuccess = function (data) {
   // store.session = data.session
   $('#message').html('')
-  $(selector).html('')
   const showHTML = (`
     <p>Session was updated successfully</p> 
   `)

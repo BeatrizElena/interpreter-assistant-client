@@ -82,9 +82,9 @@ const seeOneSession = function(event) {
 const updateOneSession = function(event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log("begin, api-updateOneSession: data")
-  console.log(data)
-  console.log('end, api-updateOneSession: data')
+  // console.log("begin, api-updateOneSession: data")
+  // console.log(data)
+  // console.log('end, api-updateOneSession: data')
   api.updateOneSession(data)
     .then(ui.onUpdateOneSessionSuccess)
     .catch(ui.otherError)
@@ -99,23 +99,6 @@ const deleteOneSession = function(event) {
     .catch(ui.otherError)
   $("#delete-one-session-form")[0].reset()
 }
-
-// const tabbedFormSignUp = function(event) {
-//   event.preventDefault()
-//   $("login").removeClass("select")
-//   $("signup").addClass('select')
-//   $("#login-box").slideUp()
-//   $("#signup-box").slideDown()
-// }
-
-// const tabbedFormLogin = function(event) {
-//   event.preventDefault()
-//   $("signup").removeClass("select")
-//   $("login").addClass('select')
-//   $("#signup-box").slideUp()
-//   $("#login-box").slideDown()
-// }
-
 
 const addHandlers = () => {
   $('#sign-up-form').on('submit', signUp)
