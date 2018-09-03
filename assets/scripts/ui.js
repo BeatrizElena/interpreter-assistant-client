@@ -59,10 +59,14 @@ const onSignOutSuccess = function() {
     $('.modal-body').html('')
     $("#myModalLabel").html('Successful action')
     for (let i = 0; i < data.doctors.length; i++) {
+      console.log(data)
+      console.log(data.doctors)
+      console.log(data.doctors.clinicReference)
+      console.log(data.doctors.clinic.name)
       const showHTML = (`
-        <p>${doctors[i].first_name} ${doctors[i].last_name}, ${doctors[i].title}, ${doctors[i].phone} || Clinic: ${doctors[i].clinic.abbreviation} (${doctors[i].clinic.name}) || Id: ${doctors[i]._id}<br />
+        <p>${data.doctors[i].first_name} ${data.doctors[i].last_name}, ${data.doctors[i].title}, ${data.doctors[i].phone} || Clinic: ${data.doctors[i].clinic.abbreviation} (${data.doctors[i].clinic.name}) || Id: ${data.doctors[i]._id}<br />
         Clinic Information:<br />
-        <small>${doctors[i].clinic.description}</small></p>
+        <small>${data.doctors[i].clinic.description}</small></p>
         <hr>
       `)
     // console.log(showHTML)
