@@ -40,6 +40,22 @@
       </form>
     </div>
 
+
+    <div class="left-div">
+        <form id="see-one-session-form" class="create-one-form-class show-after-login">
+          <input type="text" id="see-one-session" name="id" placeholder="session ID">
+          <button id="see-one" type="submit">View One Session</button>
+        </form>
+    </div>
+
+    <div class="left-div">
+        <form id="delete-one-session-form" class="delete-one-form-class show-after-login">
+          <input type="text" id="delete-one-session" name="id" placeholder="session ID">
+          <button id="delete-one" type="submit">Delete One Session</button>
+        </form>
+    </div>
+
+    <hr class="show-after-login">
     <div class="left-div">
       <form id="change-password-form" class="form-inline show-after-login">
         <input id="pw-change" name="passwords[old]" type="password" placeholder="old password">
@@ -97,33 +113,17 @@
         <form id="create-one-session-form" class="create-form-class">
           <legend>Add a Session</legend>
           <input type="text" id="create-session" name="doctorReference" placeholder="doctor ID">
-          <input type="text" id="notes-create" name="notes" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)">
+          <textarea id="notes-create" name="notes" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)"></textarea>
           <button id="create" type="submit">Add</button>
         </form>
-      </div>
-
-      <div class="flex-item show-after-login">
-          <form id="see-one-session-form" class="create-one-form-class">
-            <legend>See a Session</legend>
-            <input type="text" id="see-one-session" name="id" placeholder="session ID">
-            <button id="see-one" type="submit">View One</button>
-          </form>
       </div>
 
       <div class="flex-item show-after-login">
           <form id="update-one-session-form" class="update-one-form-class">
             <legend>Update a Session</legend>
             <input type="text" id="update-one-session" name="id" placeholder="session ID">
-            <input type="text" id="notes-update" name="notes" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)">
+            <textarea id="notes-update" name="notes" placeholder="Notes (Confidentiality First! Mind the HIPAA rules)"></textarea>
             <button id="update-one" type="submit">Submit</button>
-          </form>
-      </div>
-
-      <div class="flex-item show-after-login">
-          <form id="delete-one-session-form" class="delete-one-form-class">
-            <legend>Delete a Session</legend>
-            <input type="text" id="delete-one-session" name="id" placeholder="session ID">
-            <button id="delete-one" type="submit">Delete One</button>
           </form>
       </div>  
       
