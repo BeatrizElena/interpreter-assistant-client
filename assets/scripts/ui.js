@@ -3,14 +3,14 @@ const store = require('./store.js')
 const onSignUpSuccess = function(data) {
   $('#message').html('')
   $("#message").append('Account Created. Log in to use Interpreter Assistant.').show()
-    .delay(1500).fadeOut()
+    .delay(1800).fadeOut()
   $(".form1").css("display", "none")
   }
 
 const onSignInSuccess = function(data) {
   $('#message').html('')
   $("#message").append('Welcome to your Interpreter Assistant').show()
-    .delay(1500).fadeOut()
+    .delay(1800).fadeOut()
   $(".form1").css("display", "none")
   $(".form2").css("display", "none")
   $(".show-after-login").css("display", "flex")
@@ -21,13 +21,13 @@ const onSignInSuccess = function(data) {
 const onChangePwSuccess = function() {
   $('#message').html('')
   $("#message").append('Password change was successful').show()
-    .delay(1500).fadeOut()
+    .delay(1800).fadeOut()
 }
 
 const onSignOutSuccess = function() {
   $('#message').html('')
   $("#message").append('User Logged out. Thank you for using Interpreter Assistant! Come back soon!').show()
-    .delay(1500).fadeOut() 
+    .delay(1800).fadeOut() 
   $(".show-after-login").css("display", "none")
   $("#show-data").css("display", "none")
   $(".form1").css("display", "flex")
@@ -50,8 +50,9 @@ const onSignOutSuccess = function() {
       $("#show-data").append(showTableHeaders).show()
     for (let i = 0; i < data.doctors.length; i++) {
       // console.log(data)
-      console.log(data.doctors)
-      console.log(data.doctors[i].clinic)
+      // console.log(data.doctors)
+      // console.log(data.doctors[i].clinic)
+      // console.log(data.doctors[i].disease)
       // console.log(data.doctors[i].clinic.name)
       const showHTML = (`
       <table>
@@ -103,14 +104,14 @@ const onGetAllSessionsSuccess = function(data) {
 const onCreateOneSessionSuccess = function (data) {
   $('#message').html('')
   $("#message").append('Session successfully created').show()
-    .delay(1500).fadeOut()
+    .delay(1800).fadeOut()
   // empty values from form fields
   // $("input[type=text], textarea").val("")
 }
 
 const onSeeOneSessionSuccess = function (data) {
   const sessionString = data.session
-  console.log(data)
+  // console.log(data)
   $('#show-data').html('')
     const showTableHeaders = (`
       <table id="sessions-table">
@@ -144,7 +145,7 @@ const onUpdateOneSessionSuccess = function (data) {
     <p>Session was updated successfully</p> 
   `)
   $("#message").append(showHTML).show()
-    .delay(1500).fadeOut()
+    .delay(1800).fadeOut()
 }
 
 const onDeleteOneSessionSuccess = function () {
@@ -154,7 +155,7 @@ const onDeleteOneSessionSuccess = function () {
     <br>
   `)
   $("#message").append(showHTML).show()
-    .delay(1500).fadeOut()
+    .delay(1800).fadeOut()
 }
 
   
@@ -167,7 +168,7 @@ const userAuthError = function(error) {
         <br>
       `)
       $("#message").append(showHTML).show()
-      .delay(1500).fadeOut()
+      .delay(1600).fadeOut()
   }
 }
 
@@ -180,7 +181,7 @@ const otherError = function () {
         <br>
       `)
       $("#message").append(showHTML).show()
-      .delay(1500).fadeOut()
+      .delay(1600).fadeOut()
   }
 // empty values from form fields
 // $("input[type=text], textarea").val("")

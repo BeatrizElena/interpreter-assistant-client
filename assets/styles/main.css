@@ -33,6 +33,34 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 30px 0; 
 }
 
+* {
+  box-sizing: border-box;
+}
+
+.flex-container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color:#bbb;
+}
+
+.left {
+  flex-grow: 3;
+  padding: 2%;
+  height: 100%;
+  /* margin: 2% auto; */
+}
+
+.right {
+  /* position: relative; */
+  background-color:#bbb;
+  height: 100%;
+  flex-grow: 6;
+  padding: 0 2% 0 35%;
+}
+
 table {
   border-collapse: collapse;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -50,10 +78,6 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-* {
-  box-sizing: border-box;
-}
-
 button {
   border-radius: 15px;
   color: rgba(255, 255, 255, 0.8);
@@ -65,88 +89,115 @@ button {
   padding: 5px 10px;
 }
 
+#create {
+  margin-bottom: 60px;
+}
+
+.create-update {
+  position: relative;
+  top: 2px;
+  padding: 2%;
+}
+
 input[type=text], input[type=password], input[type=email]{
   border: 1px solid #FFC300;
   border-radius: 6px;
-  margin: 3px;
+  margin: 1px;
   padding: 3px;
+  text-align: left;
+}
+
+#change-password-form > input {
+  border: 1px solid #FFC300;
+  border-radius: 6px;
+  margin: 0.5px;
+  padding: 1px;
   text-align: center;
+  width: 40%;
+}
+
+#create-one-session-form > input {
+  border-radius: 6px;
+  /* width: 600px; */
+	/* height: 120px; */
+  /* border: 3px solid #cccccc;
+  margin: 3px;
+	padding: 3px;
+	font-family: Tahoma, sans-serif; */
 }
 
 textarea {
-  width: 500px;
+  border-radius: 6px;
+  width: 600px;
 	height: 120px;
-	border: 3px solid #cccccc;
-	padding: 5px;
+  border: 3px solid #cccccc;
+  margin: 3px;
+	padding: 3px;
 	font-family: Tahoma, sans-serif;
 }
 
 #message {
-  position: absolute;
-  top: 0;
-  background-color: aquamarine;
-  padding: 2% 2% 2% 40%;
+  padding: 2%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: #FFC300;
+  width: 100%;
 }
+
+/* animate color when messaging user */
+.flash {
+  -moz-animation: flash 1s ease-out;
+  -moz-animation-iteration-count: 1;
+
+  -webkit-animation: flash 1s ease-out;
+  -webkit-animation-iteration-count: 1;
+
+  -ms-animation: flash 1s ease-out;
+  -ms-animation-iteration-count: 1;
+}
+
+@keyframes flash {
+    0% { background-color: transparent; }
+    50% { background-color: #fbf8b2; }
+    100% { background-color: transparent; }
+}
+
+@-webkit-keyframes flash {
+    0% { background-color: transparent; }
+    50% { background-color: #fbf8b2; }
+    100% { background-color: transparent; }
+}
+
+@-moz-keyframes flash {
+    0% { background-color: transparent; }
+    50% { background-color: #fbf8b2; }
+    100% { background-color: transparent; }
+}
+
+@-ms-keyframes flash {
+    0% { background-color: transparent; }
+    50% { background-color: #fbf8b2; }
+    100% { background-color: transparent; }
+}
+
 
 #show-data {
-  background-color: bisque;
-  height: 450px;
-  padding: 2% 2% 0 30%;
-}
-
-.left {
-  width: 30%;
-}
-
-.right {
-  /* position: relative; */
   background-color:#bbb;
-  /* height: 100%; */
-  width: 100%;
-  align-items: left;
-  /* display: flex; */
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 2% 2% 1% 2%;
-}
-
-.flex-container {
-  /* flex-direction: row; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.flex-item {  
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-grow: 1;
-  padding: 2% 2% 0 60%;
-  margin: 2% 2% 0 2%;
-  width: 80%;
-}
-.left-div {
+  min-height: 650px;
+  min-width: 450px;
   padding: 2%;
-  margin: 2% auto;
-  /* width: 55%; */
-  align-items: center;
-  justify-content: center;
 }
 
-.left-container {
-  margin-top: 60%;
+.left-forms {
+  padding: 2%;
 }
 
-/* temp color for user-signup-signin div */
-/* #user-signup-signin {
-  background-color: aqua;
-} */
+.left-forms > div{
+  padding: 2%;
+}
 
-#ortiz-page {
-  width: 100%;
-  overflow: hidden;
-  position: relative; }
-
-#ortiz-aside {
+#left {
   padding-top: 2em;
   padding-right: 1.5em;
   width: 30%;
@@ -161,10 +212,10 @@ textarea {
   -o-transition: 0.5s;
   transition: 0.5s; }
   @media screen and (max-width: 1200px) {
-    #ortiz-aside {
+    #left {
       width: 30%; } }
   @media screen and (max-width: 768px) {
-    #ortiz-aside {
+    #left {
       width: 270px;
       -moz-transform: translateX(-270px);
       -webkit-transform: translateX(-270px);
@@ -172,41 +223,43 @@ textarea {
       -o-transform: translateX(-270px);
       transform: translateX(-270px);
       padding-top: 4em; } }
-  #ortiz-aside #letterhead #header {
+  #left #letterhead{
     text-align: right;
     font-weight: 700;
     font-size: 20px;
-    color: #FFC300;
+    color: rgb(255, 195, 0);
     text-transform: uppercase;
     margin-bottom: 3em;
     display: block;
-    width: 100%; }
+    width: 100%; 
+    padding: 2%
+  }
     .intro {
       text-align: right;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 210, 10, 0.5);
       text-transform: uppercase;
       margin-bottom: 3em;
       display: block;
       width: 100%; }
     @media screen and (max-width: 768px) {
-      .intro #ortiz-aside #header {
+      .intro #left {
         margin-bottom: 1em; } }
-    .intro #ortiz-aside #header a {
+    .intro #left #header a {
       display: block;
       text-align: center;
       color: #fff;
       letter-spacing: 2px;
       padding-right: .3em; }
-  #ortiz-aside #ortiz-main-menu ul {
+  #left ul {
     text-align: center;
     margin: 0;
     padding: 0; }
     @media screen and (max-width: 768px) {
-      #ortiz-aside #ortiz-main-menu ul {
+      #left ul {
         margin: 0 0 2em 0; } }
-    #ortiz-aside #ortiz-main-menu ul li {
+    #left ul li {
       margin: 0 0 10px 0;
       padding: 0;
       list-style: none;
@@ -214,7 +267,7 @@ textarea {
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 1px; }
-      #ortiz-aside #ortiz-main-menu ul li a {
+      #left ul li a {
         color: rgba(255, 255, 255, 0.5);
         text-decoration: none;
         position: relative;
@@ -223,7 +276,7 @@ textarea {
         -webkit-transition: 0.3s;
         -o-transition: 0.3s;
         transition: 0.3s; }
-        #ortiz-aside #ortiz-main-menu ul li a:after {
+        #left ul li a:after {
           content: "";
           position: absolute;
           height: 1px;
@@ -232,18 +285,18 @@ textarea {
           right: 0;
           background-color: #FFC300; 
         }
-        #ortiz-aside #ortiz-main-menu ul li a:hover {
+        #left ul li a:hover {
           text-decoration: none;
           color: white; }
-          #ortiz-aside #ortiz-main-menu ul li a:hover:after {
+          #left ul li a:hover:after {
             visibility: visible; 
           }
-      #ortiz-aside #ortiz-main-menu ul li.ortiz-active a {
+      #left ul li.ortiz-active a {
         color: #FFC300; }
-        #ortiz-aside #ortiz-main-menu ul li.ortiz-active a:after {
+        #ortiz-aside ul li.ortiz-active a:after {
           visibility: visible; 
         }
-  #ortiz-aside .ortiz-footer {
+  #left .ortiz-footer {
     position: absolute;
     bottom: 40px;
     right: 0;
@@ -255,23 +308,26 @@ textarea {
     padding: 0 20px;
     width: 100%; }
     @media screen and (max-width: 768px) {
-      #ortiz-aside .ortiz-footer {
+      #left .ortiz-footer {
         position: relative;
         bottom: 0; } }
-    #ortiz-aside .ortiz-footer span {
+    #left .ortiz-footer span {
       display: block; }
-    #ortiz-aside .ortiz-footer ul {
+    #left .ortiz-footer ul {
       padding: 0;
       margin: 0; }
-      #ortiz-aside .ortiz-footer ul li {
+      #left .ortiz-footer ul li {
         padding: 0;
         margin: 0;
         display: inline;
         list-style: none; }
-        #ortiz-aside .ortiz-footer ul li a {
+        #left .ortiz-footer ul li a {
           color: rgba(255, 255, 255, 0.3);
           padding: 4px; }
-          #ortiz-aside .ortiz-footer ul li a:hover, #ortiz-aside .ortiz-footer ul li a:active, #ortiz-aside .ortiz-footer ul li a:focus {
+          #left .ortiz-footer ul li a:hover, #ortiz-aside .ortiz-footer ul li a:active, #ortiz-aside .ortiz-footer ul li a:focus {
             text-decoration: none;
             outline: none;
             color: #FFC300; }
+      .initial {
+        font-size: 30px;
+      }

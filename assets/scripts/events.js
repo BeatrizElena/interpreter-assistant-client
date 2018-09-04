@@ -6,7 +6,7 @@ const getFormFields = require('../../lib/get-form-fields')
 const signUp = function(event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log(data)
+  // console.log(data)
   api.signUp(data)
     .then(ui.onSignUpSuccess)
     .catch(ui.userAuthError)
