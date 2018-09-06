@@ -22,7 +22,7 @@ SCSS
 
 ### User Stories and Wireframes
 
-[ERDs-UserStories-v1.pdf](https://git.generalassemb.ly/ga-wdi-boston/project-issue-tracker-guide/files/1186/ERDs-UserStories-v1.pdf)
+![userstories-v1](https://media.git.generalassemb.ly/user/11650/files/84db1420-b1ca-11e8-9d23-8ac985ac1d94)
 
-[wireframe1.pdf](https://git.generalassemb.ly/ga-wdi-boston/project-issue-tracker-guide/files/1187/wireframe1.pdf)
-[wireframe2.pdf](https://git.generalassemb.ly/ga-wdi-boston/project-issue-tracker-guide/files/1188/wireframe2.pdf)
+![wireframe1](https://media.git.generalassemb.ly/user/11650/files/8b6db464-b1ca-11e8-991f-24cc5cf42a48)
+![wireframe2](https://media.git.generalassemb.ly/user/11650/files/909a431c-b1ca-11e8-93ab-0ec75a63dcb8)
