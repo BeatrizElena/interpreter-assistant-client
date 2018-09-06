@@ -26,3 +26,12 @@ SCSS
 
 ![wireframe1](https://media.git.generalassemb.ly/user/11650/files/8b6db464-b1ca-11e8-991f-24cc5cf42a48)
 ![wireframe2](https://media.git.generalassemb.ly/user/11650/files/909a431c-b1ca-11e8-93ab-0ec75a63dcb8)
+
+
+### Challenges Faced / Problem Solving Strategies
+
+UI design is an area that needs more development. So far, problem-solving involves a lot of online searches and trial and error of CSS and bootstrap. 
+
+### Unsolved Problems / Future Plans
+
+On the client side, major goals are to make the app look more appealing and be more user-friendly. Once a new MVP that incorporates these features is in place, I plan to test it at Dana Farber. There will be at least 2-3 of us who would test the app under real-life conditions.
