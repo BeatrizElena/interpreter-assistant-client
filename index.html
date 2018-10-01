@@ -17,9 +17,182 @@
 
 <body>
 
-  <div class="flex-container wrapper">
+  <div class="grid-container">
+    <header class="header">
+      <div id="letterhead">
+        <p id="header"><span class="initial">I</span>nterpreter <span class="initial">A</span>ssistant</p>
+        <p class="intro">Quickly learn about the doctor's clinic before you go to your interpreting
+          session.</p>
+        <p class="intro">Add your own notes. Prepare. Debrief. Reflect.</p>
+      </div>
+    </header>
+    <aside class="sidebar">
+      <div class="left-forms">
+        <div>
+          <form id="see-all-doctors-form" class="index-doctors-form-class show-after-login">
+            <button id="index-doctors" type="submit">View All Doctors</button>
+          </form>
+        </div>
+
+        <div>
+          <form id="see-all-sessions-form" class="index-sessions-form-class show-after-login">
+            <button id="index-sessions" name="doctorReference" type="submit">View All Sessions</button>
+          </form>
+        </div>
+
+      <div class="sidebar-footer">
+        <hr class="show-after-login">
+        <div class="container show-after-login">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h6>
+                      <a id="panel-heading-change-password" data-toggle="collapse" href="#collapse4">Change Password</a>
+                    </h6>
+                  </div>
+                  <div id="collapse4" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div>
+                            <form id="change-password-form" class="form-inline show-after-login">
+                              <span id="password-input"><input id="pw-change" name="passwords[old]" type="password" placeholder="old password">
+                              <input id="pw-change-conf" name="passwords[new]" type="password" placeholder="new password"></span>
+                              <button id="pw-change-submit" type="submit">Change Password</button>
+                            </form>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+        <div>
+          <br>
+          <form id="sign-out-form" class="logout-form-class show-after-login">
+            <button id="logoutbutton" type="submit">Logout</button>
+          </form>
+          <br>
+        </div>
+      </div>
+    </div>
+    </aside>
+    <article class="content">
+      <div class="right content">
+        <div id="user-signup-signin">
+          <div class="form1">
+            <form id="sign-up-form" class="register-form-class">
+              <legend>Create an Account <br><span><small>For testing purposes, you can login with <i>user@user.com Password: 123</i></small></span></legend>
+              <input id="firstname-register" name="credentials[first_name]" type="text" size="40" placeholder="first name">
+              <input id="lastname-register" name="credentials[last_name]" type="text" size="40" placeholder="last name">
+              <input id="email-register" name="credentials[email]" type="email" size="40" placeholder="email">
+              <input id="pw-register" name="credentials[password]" type="password" placeholder="password">
+              <input id="pwconf-register" name="credentials[password_confirmation]" type="password" placeholder="confirm password">
+              <br />
+              <button id="register" type="submit">Register</button>
+            </form>
+            <br>
+          </div>
+  
+          <div class="form2">
+            <form id="sign-in-form" class="login-form-class">
+              <legend>Login</legend>
+              <input id="email-login" name="credentials[email]" type="email" size="40" placeholder="email">
+              <input id="pw-login" name="credentials[password]" type="password" placeholder="password">
+              <br />
+              <button id="login" type="submit">Sign In</button>
+            </form>
+            <br>
+          </div>
+        </div>
+        <div class="create-update-see-delete">
+          <div class="container show-after-login">
+            <div class="panel-group">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h6>
+                    <a class="panel-heading-color" data-toggle="collapse" href="#collapse1">Create a Session</a>
+                  </h6>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div id="create" class="show-after-login">
+                        <form id="create-one-session-form" class="create-form-class">
+                          <textarea id="notes-create" name="notes" placeholder="Notes - input doctor id below (Confidentiality First! Mind the HIPAA rules)"></textarea>
+                          <input type="text" id="create-session" name="doctorReference" placeholder="doctor ID"><button id="create" type="submit">Add a Session</button>
+                        </form>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container show-after-login">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h6>
+                      <a class="panel-heading-color" data-toggle="collapse" href="#collapse2">Update a Session</a>
+                    </h6>
+                  </div>
+                  <div id="collapse2" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div id="update" class="show-after-login">
+                            <form id="update-one-session-form" class="update-one-form-class">
+                              <textarea id="notes-update" name="notes" placeholder="Notes - input session id below (Confidentiality First! Mind the HIPAA rules)"></textarea>
+                              <input type="text" id="update-one-session" name="id" placeholder="session ID"><button id="update-one" type="submit">Update a Session</button>
+                            </form>
+                          </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+  
+          <div class="container show-after-login">
+              <div class="panel-group">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h6>
+                        <a class="panel-heading-color" data-toggle="collapse" href="#collapse3">View or Delete One Session</a>
+                      </h6>
+                    </div>
+                    <div id="collapse3" class="panel-collapse collapse">
+                      <div class="panel-body">
+                          <div id="see-or-delete-one" class="show-after-login" id="see-delete-one">
+                              <form id="see-one-session-form" class="create-one-form-class">
+                                <input type="text" id="see-one-session" name="id" placeholder="session ID">
+                                <button id="see-one" type="submit">View One Session</button>
+                              </form>
+                    
+                              <form id="delete-one-session-form" class="delete-one-form-class">
+                                <input type="text" id="delete-one-session" name="id" placeholder="session ID">
+                                <button id="delete-one" type="submit">Delete One Session</button>
+                              </form>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        
+  
+        <div id="message" class="flash"></div>
+        <div id="show-data"></div>
+      </div>
+    </article>
+    <footer class="footer">
+      <div id="copyright">
+        <p id="tiny">&copy Beatriz Ortiz</p>
+      </div>
+    </footer>
+</div>
+
+
+
+
+
+  <!-- <div class="flex-container wrapper">
     <div class="left sidebar">
-      <!-- <div id="left"> -->
         <div id="letterhead">
           <p id="header"><span class="initial">I</span>nterpreter <span class="initial">A</span>ssistant</p>
           <p class="intro">Quickly learn about the doctor's clinic before you go to your interpreting
@@ -78,113 +251,7 @@
         </div>
       </div>
     </div>
-    <!-- </div> -->
-
-    <div class="right content">
-      <div id="user-signup-signin">
-        <div class="form1">
-          <form id="sign-up-form" class="register-form-class">
-            <legend>Create an Account <br><span><small>For testing purposes, you can login with <i>user@user.com Password: 123</i></small></span></legend>
-            <input id="firstname-register" name="credentials[first_name]" type="text" size="40" placeholder="first name">
-            <input id="lastname-register" name="credentials[last_name]" type="text" size="40" placeholder="last name">
-            <input id="email-register" name="credentials[email]" type="email" size="40" placeholder="email">
-            <input id="pw-register" name="credentials[password]" type="password" placeholder="password">
-            <input id="pwconf-register" name="credentials[password_confirmation]" type="password" placeholder="confirm password">
-            <br />
-            <button id="register" type="submit">Register</button>
-          </form>
-          <br>
-        </div>
-
-        <div class="form2">
-          <form id="sign-in-form" class="login-form-class">
-            <legend>Login</legend>
-            <input id="email-login" name="credentials[email]" type="email" size="40" placeholder="email">
-            <input id="pw-login" name="credentials[password]" type="password" placeholder="password">
-            <br />
-            <button id="login" type="submit">Sign In</button>
-          </form>
-          <br>
-        </div>
-      </div>
-      <div class="create-update-see-delete">
-        <div class="container show-after-login">
-          <div class="panel-group">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h6>
-                  <a class="panel-heading-color" data-toggle="collapse" href="#collapse1">Create a Session</a>
-                </h6>
-              </div>
-              <div id="collapse1" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <div id="create" class="show-after-login">
-                      <form id="create-one-session-form" class="create-form-class">
-                        <textarea id="notes-create" name="notes" placeholder="Notes - input doctor id below (Confidentiality First! Mind the HIPAA rules)"></textarea>
-                        <input type="text" id="create-session" name="doctorReference" placeholder="doctor ID"><button id="create" type="submit">Add a Session</button>
-                      </form>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="container show-after-login">
-          <div class="panel-group">
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                  <h6>
-                    <a class="panel-heading-color" data-toggle="collapse" href="#collapse2">Update a Session</a>
-                  </h6>
-                </div>
-                <div id="collapse2" class="panel-collapse collapse">
-                  <div class="panel-body">
-                      <div id="update" class="show-after-login">
-                          <form id="update-one-session-form" class="update-one-form-class">
-                            <textarea id="notes-update" name="notes" placeholder="Notes - input session id below (Confidentiality First! Mind the HIPAA rules)"></textarea>
-                            <input type="text" id="update-one-session" name="id" placeholder="session ID"><button id="update-one" type="submit">Update a Session</button>
-                          </form>
-                        </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-
-        <div class="container show-after-login">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                  <div class="panel-heading">
-                    <h6>
-                      <a class="panel-heading-color" data-toggle="collapse" href="#collapse3">View or Delete One Session</a>
-                    </h6>
-                  </div>
-                  <div id="collapse3" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <div id="see-or-delete-one" class="show-after-login" id="see-delete-one">
-                            <form id="see-one-session-form" class="create-one-form-class">
-                              <input type="text" id="see-one-session" name="id" placeholder="session ID">
-                              <button id="see-one" type="submit">View One Session</button>
-                            </form>
-                  
-                            <form id="delete-one-session-form" class="delete-one-form-class">
-                              <input type="text" id="delete-one-session" name="id" placeholder="session ID">
-                              <button id="delete-one" type="submit">Delete One Session</button>
-                            </form>
-                          </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-      
-
-      <div id="message" class="flash"></div>
-      <div id="show-data"></div>
-    </div>
-    
-  </div>
+  </div> -->
   <!-- end flex-container -->
   <!-- Modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

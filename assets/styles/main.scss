@@ -1,83 +1,97 @@
-@font-face {
-    font-family: 'icomoon';
-    src: url("../fonts/icomoon/icomoon.eot?srf3rx");
-    src: url("../fonts/icomoon/icomoon.eot?srf3rx#iefix") format("embedded-opentype"), url("../fonts/icomoon/icomoon.ttf?srf3rx") format("truetype"), url("../fonts/icomoon/icomoon.woff?srf3rx") format("woff"), url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
-    font-weight: normal;
-    font-style: normal; }
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      height: 100vh;
-    }
+*, *:before, *:after {
+  box-sizing: border-box;
+}
     
-    body {
-      /* background-image: url('/assets/images/notebook.png');
-      background-repeat: repeat-y; */
-      min-height: 100vh;
-      font-family: "Quicksand", Arial, sans-serif;
-      font-weight: 400;
-      font-size: 15px;
-      line-height: 1.8;
-      background-color:rgba(187, 187, 187, 0.4);
-      color: rgba(0, 0, 0, 1); 
-    }
-      @media screen and (max-width: 992px) {
-        body {
-          font-size: 16px; } }
-    
-    h1, h2, h3, h4, h5, h6 {
-      color: rgb(255, 195, 0);
-      font-family: "Quicksand", Arial, sans-serif;
-      font-weight: 400;
-      margin: 0 0 30px 0; 
-    }
-    
-    * {
-      box-sizing: border-box;
-    }
+body {
+  /* background-image: url('/assets/images/notebook.png');
+  background-repeat: repeat-y; */
+  height: 100vh;
+  font-family: "Quicksand", Arial, sans-serif;
+  // font-family: 'Open Sans', 'sans-serif';
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 40px;
+  background-color:rgba(187, 187, 187, 0.4);
+  color: rgba(0, 0, 0, 1); 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: rgb(255, 195, 0);
+  font-family: "Quicksand", Arial, sans-serif;
+  font-weight: 400;
+  margin: 0 0 30px 0; 
+}
+
+h1, p {
+    margin: 0 0 1em 0;
+}
   
-    // assume wrapper contains site to a width of 960px
-    // assume a maximized browser window on screen 1920 pixels wide
-    // 960/1920=50%
-  .wrapper {
-    flex-direction: column;
-    display: ms-flex;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    height: 100%;
-    width: 50%;
-    margin: 0 auto;
-    padding: 1%;
-    background-color: rgba(255, 195, 0, 0.3);
-  }
+.grid-container {
+  background-color: rgba(255, 195, 0, 0.3);
+  width: 50%;
+  margin: 0 20px;
+  display: grid;
+  grid-gap: 4px;
+}
+  
+    .grid-container > * {
+        background-color: #444;
+        border-radius: 5px;
+        padding: 20px;
+        font-size: 1.5em;
+        /* needed for the floated layout*/
+        margin-bottom: 10px;
+    }
 
-  .sidebar {
-    align-items: stretch;
-    background: #2C2C2C;
-    border-radius: 4px;
-    padding-top: 2%;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    margin-right: 20px;
-    flex-grow: 3;
-    width: 31.25%;
-  }
+    .grid-container {
+        margin: 0 auto;
+        grid-template-columns: 15.5fr 50fr;
+    }
 
-  .content {
-    align-items: stretch;
-    background-color:#bbb;
-    border-radius: 4px;
-    flex-grow: 9;
-    padding-left: 2em;
-    padding-right: 1.5em;
-    margin-right: 20px;
-    overflow: auto;
-    width: 66.66667%;
-  }
+    .sidebar{
+      background-color: #2C2C2C;
+      color: #fff;
+      float: left;
+      align-items: stretch;
+      border-radius: 4px;
+      padding-top: 2%;
+      padding-left: 1.5em;
+      padding-right: 1.5em;
+    }
+    
+    .content {
+      background-color: #bbb;
+      color: #fff;
+      float: right;
+      // align-items: stretch;
+      border-radius: 4px;
+      padding-left: 1em;
+      padding-right: 1em;
+      // overflow: auto;
+    }
+    
+    .header, .footer {
+        grid-column: 1 / -1;
+        /* for floated layout */
+        clear: both;
+    }
 
-  // Inside the left sidebar
+  /* Set the widths used on floated items back to auto
+      and remove the bottom margin bc grids have gaps. */
+  @supports (display: grid) {
+      .wrapper > * {
+        width: auto;
+        margin: 0;
+      }
+    }    
+
+  
+  // Inside the header
   #letterhead{
     text-align: right;
     font-weight: 700;
@@ -85,67 +99,42 @@
     color: rgb(255, 195, 0);
     text-transform: uppercase;
     margin-bottom: 3em;
-    margin-top: 8%;
+    margin-top: 4%;
     display: block;
     // width: 100%; 
     padding: 2%
   }
 
   .initial {
-    font-size: 1.8vw;
+    font-size: 2vw;
   }
 
   .intro {
     text-align: right;
     font-weight: 600;
-    font-size: 0.8vw;
+    font-size: 1vw;
     color: rgba(255, 210, 10, 0.5);
     text-transform: uppercase;
-    margin-bottom: 3em;
-    display: block;
-    // width: 100%; 
+    margin-bottom: 0.5em;
+    display: block; 
   }
 
   .sidebar > .sidebar-footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
     font-size: 1vw;
     text-align: center;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.3);
     padding: 0 10px;
-    // width: 70%; 
   }
 
   #copyright {
-    padding: 0 10px;
+    text-align: center;
   }
 
   #tiny {
     font-weight: 600;
     font-size: 0.7vw;
     color: rgba(255, 210, 10, 0.5);
-  }
-  
-  table {
-    border-collapse: collapse;
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    font-size: 1vw;
-    width: 100%;
-  }
-  
-  th, td {
-    border-bottom: 0.5px solid black;
-    font-size: 1vw;
-    padding: 8px;
-    text-align: left;
-    width: 250px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
   }
   
   button {
@@ -301,7 +290,31 @@
       50% { background-color: #fbf8b2; }
       100% { background-color: transparent; }
   }
-  
+  // Tables for showing All Doctors & All Sessions
   // work in progress:
    // make table responsive (option 1: display: block;option 2: wrap table in <div style="overflow-x:auto;">
+   table {
+    border-collapse: collapse;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-size: 1vw;
+    width: 100%;
+  }
   
+  th, td {
+    border-bottom: 0.5px solid black;
+    font-size: 1vw;
+    padding: 8px;
+    text-align: left;
+    width: 250px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+
+
+  // @media (min-width: 320px) {
+
+  @media screen and (max-width: 992px) {
+    body {
+      font-size: 16px; } }
