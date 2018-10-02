@@ -11,6 +11,7 @@ const onSignInSuccess = function(data) {
   $('#message').html('')
   $("#message").append('Welcome to your Interpreter Assistant').show()
     .delay(1800).fadeOut()
+  $('#create-account-heading').css("display", "none")
   $(".form1").css("display", "none")
   $(".form2").css("display", "none")
   $(".show-after-login").css("display", "flex")

@@ -24,108 +24,100 @@ h1, h2, h3, h4, h5, h6 {
   color: rgb(255, 195, 0);
   font-family: "Quicksand", Arial, sans-serif;
   font-weight: 400;
-  margin: 0 0 30px 0; 
+  margin: 0 0 1em 0; 
 }
 
-h1, p {
+p {
     margin: 0 0 1em 0;
 }
   
 .grid-container {
   background-color: rgba(255, 195, 0, 0.3);
-  width: 50%;
-  margin: 0 20px;
+  width: 60%;
+  margin: 0 auto;
   display: grid;
   grid-gap: 4px;
+  grid-template-columns: 15.5fr 50fr;
 }
   
-    .grid-container > * {
-        background-color: #444;
-        border-radius: 5px;
-        padding: 20px;
-        font-size: 1.5em;
-        /* needed for the floated layout*/
-        margin-bottom: 10px;
-    }
+.grid-container > * {
+    background-color: #444;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 1.5em;
+    /* needed for the floated layout*/
+    margin-bottom: 5px;
+}
 
-    .grid-container {
-        margin: 0 auto;
-        grid-template-columns: 15.5fr 50fr;
-    }
+.sidebar{
+  background-color: #2C2C2C;
+  color: #fff;
+  float: left;
+  align-items: stretch;
+  border-radius: 4px;
+  padding-top: 2%;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+}
 
-    .sidebar{
-      background-color: #2C2C2C;
-      color: #fff;
-      float: left;
-      align-items: stretch;
-      border-radius: 4px;
-      padding-top: 2%;
-      padding-left: 1.5em;
-      padding-right: 1.5em;
-    }
-    
-    .content {
-      background-color: #bbb;
-      color: #fff;
-      float: right;
-      // align-items: stretch;
-      border-radius: 4px;
-      padding-left: 1em;
-      padding-right: 1em;
-      // overflow: auto;
-    }
-    
-    .header, .footer {
-        grid-column: 1 / -1;
-        /* for floated layout */
-        clear: both;
-    }
+.content {
+  background-color: #bbb;
+  color: #fff;
+  float: right;
+  // align-items: stretch;
+  border-radius: 4px;
+  padding-left: 1em;
+  padding-right: 1em;
+  // overflow: auto;
+}
 
-  /* Set the widths used on floated items back to auto
-      and remove the bottom margin bc grids have gaps. */
-  @supports (display: grid) {
-      .wrapper > * {
-        width: auto;
-        margin: 0;
-      }
-    }    
+.header, .footer {
+    grid-column: 1 / -1;
+    /* for floated layout */
+    clear: both;
+}  
 
-  
-  // Inside the header
-  #letterhead{
-    text-align: right;
-    font-weight: 700;
-    font-size: 1.3vw;
-    color: rgb(255, 195, 0);
-    text-transform: uppercase;
-    margin-bottom: 3em;
-    margin-top: 4%;
-    display: block;
-    // width: 100%; 
-    padding: 2%
-  }
+// Inside the header
+#letterhead{
+  text-align: right;
+  font-weight: 700;
+  font-size: 2.4vw;
+  color: rgb(255, 195, 0);
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+  margin-top: 1em;
+  display: block;
+  padding: 2%
+}
 
-  .initial {
-    font-size: 2vw;
-  }
+.initial {
+  font-size: 3.5vw;
+}
 
-  .intro {
-    text-align: right;
-    font-weight: 600;
-    font-size: 1vw;
-    color: rgba(255, 210, 10, 0.5);
-    text-transform: uppercase;
-    margin-bottom: 0.5em;
-    display: block; 
-  }
+.intro {
+  text-align: right;
+  font-weight: 600;
+  font-size: 1.1vw;
+  color: rgba(255, 210, 10, 0.5);
+  text-transform: uppercase;
+  margin-bottom: 0.2em;
+  display: block; 
+}
 
-  .sidebar > .sidebar-footer {
-    font-size: 1vw;
-    text-align: center;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.3);
-    padding: 0 10px;
-  }
+// sidebar
+#create-account-heading {
+  color: rgba(255, 210, 10, 0.5);
+  font-size: 1.6em;
+  text-align: center;
+}
+
+.sidebar-footer {
+  font-size: 1vw;
+  text-align: center;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 10px;
+}
 
   #copyright {
     text-align: center;
@@ -135,6 +127,14 @@ h1, p {
     font-weight: 600;
     font-size: 0.7vw;
     color: rgba(255, 210, 10, 0.5);
+  }
+
+  .index-doctors-form-class, 
+  .index-sessions-form-class,
+  #change-password-form > button {
+    font-size: 0.8em;
+    // margin-top: 2em;
+    padding: 1em 0.3em;
   }
   
   button {
@@ -173,54 +173,29 @@ h1, p {
   input[type=text], input[type=password], input[type=email]{
     border: 1px solid #FFC300;
     border-radius: 6px;
-    font-size: 1vw;
+    font-size: 0.6em;
     margin: 1px;
     padding: 3px;
     text-align: left;
     width: 70%
   }
-  
-  #password-input {
-    font-size: 0.5vw;
-    margin: 10px 0 1px 0;
-    text-align: center;
-    width: 120%;
-  }
 
-  #see-all-doctors-form > button {
+  #index-doctors, #index-sessions, 
+  #change-password-form > button, 
+  #sign-out-form > button, 
+  #panel-heading-change-password {
     background-color:  rgb(248, 230, 170);
     color: rgba(43, 35, 2, 0.5);
-    font-size: 1vw;
-    margin: 0.5px 0.5px 1px 1px;
-    padding: 1px 1px 2px 1px;
-    width: 100%;
-  }
-
-  #see-all-sessions-form > button {
-    background-color:  rgb(248, 230, 170);
-    color: rgba(43, 35, 2, 0.5);
-    font-size: 1vw;
-    margin: 0.5px 0.5px 100px 1px;
+    font-size: 1em;
+    margin: 0.2px auto;
     padding: 1px;
     width: 100%;
   }
 
-  #change-password-form > button {
-    background-color:  rgb(248, 230, 170);
-    color: rgba(43, 35, 2, 0.5);
-    font-size: 1vw;
-    margin: 0.5px 0.5px 1px 1px;
-    padding: 1px 1px 2px 1px;
-    width: 100%;
-  }
-
-  #sign-out-form > button {
-    background-color:  rgb(248, 230, 170);
-    color: rgba(43, 35, 2, 0.5);
-    font-size: 1vw;
-    margin: 0.5px 0.5px 1px 1px;
-    padding: 1px 1px 2px 1px;
-    width: 100%;
+  input > .password-input {
+    font-size: 0.4em;
+    text-align: center;
+    width: auto;
   }
   
   #create-one-session-form > input {
@@ -317,4 +292,14 @@ h1, p {
 
   @media screen and (max-width: 992px) {
     body {
-      font-size: 16px; } }
+      font-size: 16px; }
+    
+    /* Set the widths used on floated items back to auto
+      and remove the bottom margin bc grids have gaps. */
+  @supports (display: grid) {
+    .grid-container > * {
+      width: auto;
+      margin: 0;
+    }
+  }  
+}
